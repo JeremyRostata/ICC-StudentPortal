@@ -42,8 +42,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <a  href="http://localhost/C_Program_Dashboard/index">Student List ></a>
           </div>
 
-
-
           <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <!-- Profile dropdown -->
             
@@ -89,13 +87,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </thead>
 
          <tbody class="divide-y divide-gray-100">
-            <?php foreach ($course_section as $row): ?>
+            <?php foreach ($student_list as $row): ?>
             <tr class="bg-gray-300">
             
-                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['section_name'] ?></td>
-                <td class="p-3 text-sm whitespace-nowrap class ">
-                    <a href="/C_Program_Dashboard/section/?section_id=<?= $row['section_id'] ?>"><span class="p-1.5 text-xs font-medium uppercase tracking wider text-blue-800 rounded-lg hover:font-bold"><pre>Edit</pre></span></a>
-                </td>
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['student_name'] ?></td>
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['year_level'] == 1 ? '1st Year' : ($row['year_level'] == 2 ? '2nd Year' : ($row['year_level'] == 3 ? '3rd Year' : '4th Year')) ?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
