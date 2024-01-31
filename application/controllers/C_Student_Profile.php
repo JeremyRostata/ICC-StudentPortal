@@ -25,6 +25,9 @@ class C_Student_Dashboard extends CI_Controller {
 		$this->load->view('V_Student_Dashboard', $data);
     }
 
+
+    
+
     public function logout(){
         $this->session->unset_userdata('student_id');
         redirect($_SERVER['REQUEST_URI'], 'refresh'); 

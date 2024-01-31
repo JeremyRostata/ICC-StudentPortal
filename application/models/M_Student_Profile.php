@@ -18,7 +18,7 @@ class M_Student_Dashboard extends CI_Model{
         $this->db->select('students_schedule.midterm_grade');
         $this->db->select('students_schedule.final_grade');
         $this->db->select('grade_remarks.grade_remarks_name');
-        $this->db->from('students_schedule');
+        $this->db->from('students_schzedule');
         $this->db->join('schedule','students_schedule.schedule_id = schedule.schedule_id','left');
         $this->db->join('grade_remarks','students_schedule.grade_remarks_id = grade_remarks.grade_remarks_id','left');
         $this->db->join('employee','schedule.employee_id = employee.employee_id','left');
@@ -29,6 +29,17 @@ class M_Student_Dashboard extends CI_Model{
         return $this->db->get()->result_array();
     }
     
+    public function fetchSubject($course_id){  
+        $this->db->select('subject_code');
+        $this->db->select('subject_name');
+        $this->db->from('students');
+        $this->db->join('course','students.course_id = course.course_id','left');
+        $this->db->where('subject.course_id', $course_id);
+        
+        return $this->db->get()->result_array()[0]; 
+    }
+
+
     public function fetchStudentInfo($student_id){  
         $this->db->select('course_name');
         $this->db->select('first_name');
@@ -36,8 +47,15 @@ class M_Student_Dashboard extends CI_Model{
         $this->db->from('students');
         $this->db->where('student_id', $student_id);
         $this->db->join('course','students.course_id = course.course_id','left');
+        $this->db->join('suject','course.course_id = suject.course_id','left');
         return $this->db->get()->result_array()[0]; 
     }
+
+
+
+
+
+
     public function studentLoginCreate($student_id, $password)
     {
         
