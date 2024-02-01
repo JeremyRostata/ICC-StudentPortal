@@ -7,9 +7,9 @@ class M_Student_subject extends CI_Model{
     }
 
     public function fetchStudentGradeList($student_id){
-        $this->db->select('CONCAT(curriculum.subject_code, " - ", curriculum.subject_name) AS subject_name');
+        $this->db->select('CONCAT(subject.subject_code, " - ", subject.subject_name) AS subject_name');
         $this->db->select('CONCAT(employee.first_name, " ", employee.last_name) AS employee_name');
-        $this->db->select('curriculum.subject_code');
+        $this->db->select('subject.subject_code');
         $this->db->select('schedule.schedule_remarks');
         $this->db->select('schedule.room_remarks');
         $this->db->select('students_schedule.year_level');
@@ -23,7 +23,7 @@ class M_Student_subject extends CI_Model{
         $this->db->join('schedule','students_schedule.schedule_id = schedule.schedule_id','left');
         $this->db->join('grade_remarks','students_schedule.grade_remarks_id = grade_remarks.grade_remarks_id','left');
         $this->db->join('employee','schedule.employee_id = employee.employee_id','left');
-        $this->db->join('curriculum','schedule.subject_id = curriculum.subject_id','left');
+        $this->db->join('subject','schedule.subject_id = subject.subject_id','left');
         $this->db->where('students_schedule.student_id', $student_id);
         $this->db->order_by('students_schedule.year_level');
         $this->db->order_by('students_schedule.semester');
@@ -31,33 +31,145 @@ class M_Student_subject extends CI_Model{
     }
     
     public function fetchSubject($student_id){  
-        $this->db->select('curriculum.subject_name');
-        $this->db->select('curriculum.subject_code');
-        $this->db->from('curriculum');
-        $this->db->where('curriculum.semester', 1);
+        $this->db->select('subject.subject_name');
+        $this->db->select('subject.subject_code');
+        $this->db->from('subject');
         return $this->db->get()->result_array();
     }
-    public function fetchSem1($student_id){  
-        $this->db->select('subject_name');
-        $this->db->select('subject_code');
+
+
+
+     //-------------------------------------FIRST YEAR----------------------------------------------------
+
+
+     public function fetchFsem1($student_id){  
+        $this->db->select('subject.subject_name');
+        $this->db->select('subject.subject_code');
         $this->db->from('students');
         $this->db->join('course','students.course_id = course.course_id','left');
-        $this->db->join('sem1','course.course_id = sem1.course_id','left');
+        $this->db->join('curriculum','course.course_id = curriculum.course_id','left');
+        $this->db->join('subject','curriculum.subject_id = subject.subject_id','left');
         $this->db->where('student_id', $student_id);
+        $this->db->where('curriculum.semester', 1);
+        $this->db->where('curriculum.year_level', 1);
         return $this->db->get()->result_array();
     }
+    public function fetchFsem2($student_id){  
+        $this->db->select('subject.subject_name');
+        $this->db->select('subject.subject_code');
+        $this->db->from('students');
+        $this->db->join('course','students.course_id = course.course_id','left');
+        $this->db->join('curriculum','course.course_id = curriculum.course_id','left');
+        $this->db->join('subject','curriculum.subject_id = subject.subject_id','left');
+        $this->db->where('student_id', $student_id);
+        $this->db->where('curriculum.semester', 2);
+        $this->db->where('curriculum.year_level', 1);
+        return $this->db->get()->result_array();
+    }
+
+    //-------------------------------------SECOND YEAR----------------------------------------------------
+
+    public function fetchSsem1($student_id){  
+        $this->db->select('subject.subject_name');
+        $this->db->select('subject.subject_code');
+        $this->db->from('students');
+        $this->db->join('course','students.course_id = course.course_id','left');
+        $this->db->join('curriculum','course.course_id = curriculum.course_id','left');
+        $this->db->join('subject','curriculum.subject_id = subject.subject_id','left');
+        $this->db->where('student_id', $student_id);
+        $this->db->where('curriculum.semester', 1);
+        $this->db->where('curriculum.year_level', 2);
+        return $this->db->get()->result_array();
+    }
+    public function fetchSsem2($student_id){  
+        $this->db->select('subject.subject_name');
+        $this->db->select('subject.subject_code');
+        $this->db->from('students');
+        $this->db->join('course','students.course_id = course.course_id','left');
+        $this->db->join('curriculum','course.course_id = curriculum.course_id','left');
+        $this->db->join('subject','curriculum.subject_id = subject.subject_id','left');
+        $this->db->where('student_id', $student_id);
+        $this->db->where('curriculum.semester', 2);
+        $this->db->where('curriculum.year_level', 2);
+        return $this->db->get()->result_array();
+    }
+
+
+    //-------------------------------------THIRD YEAR----------------------------------------------------
+
+    public function fetchTsem1($student_id){  
+        $this->db->select('subject.subject_name');
+        $this->db->select('subject.subject_code');
+        $this->db->from('students');
+        $this->db->join('course','students.course_id = course.course_id','left');
+        $this->db->join('curriculum','course.course_id = curriculum.course_id','left');
+        $this->db->join('subject','curriculum.subject_id = subject.subject_id','left');
+        $this->db->where('student_id', $student_id);
+        $this->db->where('curriculum.semester', 1);
+        $this->db->where('curriculum.year_level', 3);
+        return $this->db->get()->result_array();
+    }
+    public function fetchTsem2($student_id){  
+        $this->db->select('subject.subject_name');
+        $this->db->select('subject.subject_code');
+        $this->db->from('students');
+        $this->db->join('course','students.course_id = course.course_id','left');
+        $this->db->join('curriculum','course.course_id = curriculum.course_id','left');
+        $this->db->join('subject','curriculum.subject_id = subject.subject_id','left');
+        $this->db->where('student_id', $student_id);
+        $this->db->where('curriculum.semester', 2);
+        $this->db->where('curriculum.year_level', 3);
+        return $this->db->get()->result_array();
+    }
+
+
+    //-------------------------------------FOURTH YEAR----------------------------------------------------
+
+    public function fetchFtsem1($student_id){  
+        $this->db->select('subject.subject_name');
+        $this->db->select('subject.subject_code');
+        $this->db->from('students');
+        $this->db->join('course','students.course_id = course.course_id','left');
+        $this->db->join('curriculum','course.course_id = curriculum.course_id','left');
+        $this->db->join('subject','curriculum.subject_id = subject.subject_id','left');
+        $this->db->where('student_id', $student_id);
+        $this->db->where('curriculum.semester', 1);
+        $this->db->where('curriculum.year_level', 4);
+        return $this->db->get()->result_array();
+    }
+    public function fetchFtsem2($student_id){  
+        $this->db->select('subject.subject_name');
+        $this->db->select('subject.subject_code');
+        $this->db->from('students');
+        $this->db->join('course','students.course_id = course.course_id','left');
+        $this->db->join('curriculum','course.course_id = curriculum.course_id','left');
+        $this->db->join('subject','curriculum.subject_id = subject.subject_id','left');
+        $this->db->where('student_id', $student_id);
+        $this->db->where('curriculum.semester', 2);
+        $this->db->where('curriculum.year_level', 4);
+        return $this->db->get()->result_array();
+    }
+
+
+
+
+
+
+
+
+    
 
 
     public function fetchStudentInfo($student_id){  
-        $this->db->select('curriculum.subject_name');
-        $this->db->select('curriculum.subject_id');
+        $this->db->select('subject.subject_name');
+        $this->db->select('subject.subject_id');
         $this->db->select('course_name');
         $this->db->select('first_name');
         $this->db->select('last_name');
         $this->db->from('students');
         $this->db->where('student_id', $student_id);
         $this->db->join('course','students.course_id = course.course_id','left');
-        $this->db->join('curriculum','students.course_id = curriculum.course_id','left');
+        $this->db->join('subject','students.course_id = subject.course_id','left');
         
         return $this->db->get()->result_array()[0]; 
     }

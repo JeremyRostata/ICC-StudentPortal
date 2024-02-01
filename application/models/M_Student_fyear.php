@@ -40,34 +40,37 @@ class M_Student_fyear extends CI_Model{
 
 
     public function fetchSem1($student_id){  
-        $this->db->select('subject_name');
-        $this->db->select('subject_code');
-        $this->db->select('curriculum.year');
+        $this->db->select('subject.subject_name');
+        $this->db->select('subject.subject_code');
         $this->db->from('students');
         $this->db->join('course','students.course_id = course.course_id','left');
         $this->db->join('curriculum','course.course_id = curriculum.course_id','left');
+        $this->db->join('subject','curriculum.subject_id = subject.subject_id','left');
         $this->db->where('student_id', $student_id);
         $this->db->where('curriculum.semester', 1);
-        $this->db->where('curriculum.year', 1);
+        $this->db->where('curriculum.year_level', 1);
         return $this->db->get()->result_array();
     }
 
-
-
-
-
-
     public function fetchSem2($student_id){  
-        $this->db->select('subject_name');
-        $this->db->select('subject_code');
+        $this->db->select('subject.subject_name');
+        $this->db->select('subject.subject_code');
         $this->db->from('students');
         $this->db->join('course','students.course_id = course.course_id','left');
         $this->db->join('curriculum','course.course_id = curriculum.course_id','left');
+        $this->db->join('subject','curriculum.subject_id = subject.subject_id','left');
         $this->db->where('student_id', $student_id);
         $this->db->where('curriculum.semester', 2);
-        $this->db->where('curriculum.year', 1);
+        $this->db->where('curriculum.year_level', 1);
         return $this->db->get()->result_array();
     }
+
+
+
+
+
+
+    
 
 
     public function fetchStudentInfo($student_id){  

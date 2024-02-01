@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2024 at 10:47 AM
+-- Generation Time: Feb 01, 2024 at 04:54 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -60,7 +60,8 @@ CREATE TABLE `course` (
 
 INSERT INTO `course` (`course_id`, `course_code`, `course_name`) VALUES
 (1, 'BSCS', 'Bachelor of Science in Computer Science'),
-(2, 'BSIT', 'Bachelor of Science in Information Technology');
+(2, 'BSIT', 'Bachelor of Science in Information Technology'),
+(3, 'BSBA', 'Bachelor of Science in Business Administration');
 
 -- --------------------------------------------------------
 
@@ -457,31 +458,31 @@ CREATE TABLE `subject` (
 --
 
 INSERT INTO `subject` (`subject_id`, `subject_code`, `subject_name`, `course_id`) VALUES
-(237, 'CS 101', 'Introduction to Computing', 0),
-(238, 'CS 103', 'Computer Programming 1', 0),
-(239, 'GE 1', 'Understanding the Self', 0),
-(240, 'GE 2', 'Reading In Philippine History', 0),
-(241, 'Fil 1', 'Dalumat ng/sa Filipino (DALUMATFIL)', 0),
-(242, 'NSTP 1', 'National Service Training Program 1', 0),
-(243, 'PE 1', 'Physical Education 1', 0),
-(244, 'CS 102', 'Discrete Structures 1', 0),
-(245, 'CS 104', 'Computer Programming 2 (Intermediate Programming)', 0),
-(246, 'GE 3 ', 'The Contemporary World', 0),
-(247, 'GE 4', 'Mathematics in the Modern World', 0),
-(248, 'Fil 2', 'Panitikan', 0),
-(249, 'NSTP 2', 'National Service Training Program 2', 0),
-(250, 'PE 2', 'Physical Education 2', 0),
-(251, 'CS 201', 'Computer Programming 3 (Object Oriented Programming)', 0),
-(252, 'CS 203', 'Discrete Structure 2', 0),
-(253, 'CS 205', 'Data Structures and Algorithms', 0),
-(254, 'CS 207', 'Information Assurance and Security', 0),
-(255, 'GE 5', 'Purposive Communication', 0),
-(256, 'GE 6', 'Art Appreciation', 0),
-(257, 'STAT', 'Research Statistics for IT', 0),
-(258, 'PE 3', 'Physical Education 3', 0),
-(259, 'CS 202', 'Computer Programming 4 (SQL for Data Science)', 0),
-(260, 'CS 204', 'Algorithm and Complexity', 0),
-(261, 'CS 206', 'Information Management', 0),
+(237, 'CS 101', 'Introduction to Computing', 1),
+(238, 'CS 103', 'Computer Programming 1', 1),
+(239, 'GE 1', 'Understanding the Self', 1),
+(240, 'GE 2', 'Reading In Philippine History', 1),
+(241, 'Fil 1', 'Dalumat ng/sa Filipino (DALUMATFIL)', 1),
+(242, 'NSTP 1', 'National Service Training Program 1', 1),
+(243, 'PE 1', 'Physical Education 1', 1),
+(244, 'CS 102', 'Discrete Structures 1', 1),
+(245, 'CS 104', 'Computer Programming 2 (Intermediate Programming)', 1),
+(246, 'GE 3 ', 'The Contemporary World', 1),
+(247, 'GE 4', 'Mathematics in the Modern World', 1),
+(248, 'Fil 2', 'Panitikan', 1),
+(249, 'NSTP 2', 'National Service Training Program 2', 1),
+(250, 'PE 2', 'Physical Education 2', 1),
+(251, 'CS 201', 'Computer Programming 3 (Object Oriented Programming)', 1),
+(252, 'CS 203', 'Discrete Structure 2', 1),
+(253, 'CS 205', 'Data Structures and Algorithms', 1),
+(254, 'CS 207', 'Information Assurance and Security', 1),
+(255, 'GE 5', 'Purposive Communication', 1),
+(256, 'GE 6', 'Art Appreciation', 1),
+(257, 'STAT', 'Research Statistics for IT', 1),
+(258, 'PE 3', 'Physical Education 3', 1),
+(259, 'CS 202', 'Computer Programming 4 (SQL for Data Science)', 1),
+(260, 'CS 204', 'Algorithm and Complexity', 1),
+(261, 'CS 206', 'Information Management', 1),
 (262, 'CS 208', 'Logic Design and Switching Theory', 0),
 (263, 'GE 7', 'Science, Technology and Society', 0),
 (264, 'GE 8', 'Ethics and Philosophy ', 0),
@@ -661,7 +662,7 @@ ALTER TABLE `access_role`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
-  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `curriculum`
