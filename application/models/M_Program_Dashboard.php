@@ -6,33 +6,59 @@ class M_Program_Dashboard extends CI_Model{
         parent::__construct();
     }
 
-
-
-
-
     public function fetchTeacherInfo($employee_id){
         $this->db->select('employee.employee_number');
-        $this->db->select('CONCAT(employee.first_name, " ", employee.last_name) AS employee_name');
+        $this->db->select('employee.first_name');
+        $this->db->select('employee.last_name');
+        $this->db->select('course.course_name');
+        $this->db->from('employee');
+        $this->db->join('course','employee.course_id = course.course_id','left');
+        $this->db->where('employee.employee_id', $employee_id);
+       
+        return $this->db->get()->result_array()[0];
+    }
+
+    public function fetchCourseSection($employee_id){
         $this->db->select('section.section_name');
-        $this->db->from('schedule');
-        $this->db->join('employee','schedule.employee_id = employee.employee_id','left');
-        $this->db->join('section','schedule.section_id = section.section_id','left');
+        $this->db->select('section.section_id');
+        $this->db->from('employee');
+        $this->db->join('course','employee.course_id = course.course_id','left');
+        $this->db->join('section','course.course_id = section.course_id','left');
+        $this->db->where('employee.employee_id', $employee_id);
        
         return $this->db->get()->result_array();
     }
 
+    public function fetchStudentList($section_id){
+        $this->db->select('CONCAT(students.first_name, " ", students.last_name) as student_name');
+        $this->db->select('students.year_level');
+        $this->db->from('students');
+        $this->db->where('students.section_id', $section_id);
+       
+        return $this->db->get()->result_array();
+    }
 
-
-
-
-    
-    public function fetchTeacher($employee_id){
-        $this->db->select('course_name');
-        $this->db->select('first_name');
-        $this->db->select('last_name');
-        $this->db->from('employee');
-        $this->db->where('employee_id', $employee_id);
-        $this->db->join('course','employee.course_id = course.course_id','left');
+    public function fetchSectionInfo($section_id){
+        $this->db->select('section.section_name');
+        $this->db->select('section.year_level');
+        $this->db->from('section');
+        $this->db->where('section.section_id', $section_id);
+       
         return $this->db->get()->result_array()[0];
+    }
+    
+    public function saveUploadedExcel($insert_array, $section_id){
+        
+        $this->db->set('section_id', $section_id);
+        $this->db->where('student_number',$insert_array['student_number']);
+        $this->db->update('students',$insert_array);
+        
+    }
+    public function emptySection($section_id){
+        
+        $this->db->set('section_id', 'null', false);
+        $this->db->where('section_id',$section_id);
+        $this->db->update('students');
+        
     }
 }
