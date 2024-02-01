@@ -30,9 +30,7 @@ class C_Teacher_Dashboard extends CI_Controller {
 
         $schedule_id = $this->input->get('schedule_id'); 
         $employee_id = $this->session->userdata('employee_id');
-        
         $schedule_info = $this->M_Teacher_Dashboard->fetchTeacherSchedule($schedule_id);
-        
         $teacher_info = $this->M_Teacher_Dashboard->fetchTeacherInfo($employee_id);
         $teacher_student_schedule_list = $this->M_Teacher_Dashboard->fetchTeacherStudentScheduleList($schedule_id);
         $grade_remarks_list = $this->M_Teacher_Dashboard->fetchGradeRemarksList();

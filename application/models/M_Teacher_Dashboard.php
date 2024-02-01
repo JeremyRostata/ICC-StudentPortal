@@ -24,6 +24,7 @@ class M_Teacher_Dashboard extends CI_Model{
     
     public function fetchTeacherSchedule($schedule_id){
         $this->db->select('CONCAT(subject.subject_code, " - ", subject.subject_name) AS subject_name');
+        
         $this->db->select('schedule.room_remarks');
         $this->db->select('schedule.schedule_remarks');
         $this->db->select('schedule.year_level');
@@ -75,6 +76,7 @@ class M_Teacher_Dashboard extends CI_Model{
     public function fetchTeacherInfo($employee_id){
         $this->db->select('first_name');
         $this->db->select('last_name');
+        
         $this->db->from('employee');
         $this->db->where('employee_id', $employee_id);
         return $this->db->get()->result_array()[0];

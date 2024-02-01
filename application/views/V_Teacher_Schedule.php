@@ -119,9 +119,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="prelim_grade[]" value="<?= $row['prelim_grade'] ?>">
                 <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="midterm_grade[]" value="<?= $row['midterm_grade'] ?>">
                 <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="final_grade[]" value="<?= $row['final_grade'] ?>">
-                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input disabled type="number"step=".01" name="grade[]" value="<?= $row['grade'] ?>" >
-
-
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="grade[]" value="<?= $row['grade'] ?>">
                 <td class="p-3 text-sm whitespace-nowrap class bg-blue-200">
                     <select class="opt" name="grade_remarks_id[]" value="<?= $row['grade_remarks_id'] ?>" disabled> 
                         <option value="" hidden>-</option>

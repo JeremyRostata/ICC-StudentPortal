@@ -83,18 +83,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <table>
         <thead class="bg-gray-200 border-b-2 border-gray-200 ">
                 <tr>
-                <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre>Section</pre></th>
+                <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre>Teacher Assigned</pre></th>
+                <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre>Subject</pre></th>
+                <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre>Schedule</pre></th>
+                <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre>Room</pre></th>
                 <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre></pre></th>
                 </tr>
             </thead>
 
          <tbody class="divide-y divide-gray-100">
-            <?php foreach ($course_section as $row): ?>
+            <?php foreach ($teacher_schedule as $row): ?>
             <tr class="bg-gray-300">
-            
-                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['section_name'] ?></td>
-                <td class="p-3 text-sm whitespace-nowrap class ">
-                    <a href="/C_Program_Dashboard/section/?section_id=<?= $row['section_id'] ?>"><span class="p-1.5 text-xs font-medium uppercase tracking wider text-blue-800 rounded-lg hover:font-bold"><pre>Edit</pre></span></a>
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['employee_name'] ?></td>
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_name'] ?></td>
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['schedule_remarks'] ?></td>
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['room_remarks'] ?></td>
+                <td class="p-3 text-sm whitespace-nowrap class">
+                    <a href="/C_Program_Dashboard/schedule/?schedule_id=<?= $row['schedule_id'] ?>"><span class="p-1.5 text-xs font-medium uppercase tracking wider text-blue-800 rounded-lg hover:font-bold"><pre>Edit</pre></span></a>
                 </td>
             </tr>
             <?php endforeach; ?>

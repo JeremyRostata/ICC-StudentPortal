@@ -26,10 +26,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="flex flex-shrink-0 items-center">
               
             <img src="<?php echo base_url();?>images/iccl.webp" alt="" style="width: 50px;">
-
-
-      
-
             </div>
             <div class="hidden sm:ml-6 sm:block">
               <a class="flex space-x-4">
@@ -48,14 +44,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <button type="button" onclick="toggleProfileDropdown()" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                   <span class="absolute -inset-1.5"></span>
                   <span class="sr-only">Open user menu</span>
-
                   <img src="<?php echo base_url();?>images/pp.png" alt="" style="width: 55px;">
-                  
                 </button>
               </div>
               <div id="myProfileDropdown" class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                 <!-- Active: "bg-gray-100", Not Active: "" -->
-               <span> <?= $student_info['last_name'] . ', ' . $student_info['first_name'] ?>   </span>
+               <span> <?= $student_info['last_name'] . ', ' . $student_info['first_name'] ?></span>
                
                <br>
                           <form action="/C_student_Dashboard/logout" method="post">
@@ -76,7 +70,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-    
+    <div class="seperator">
+      <label for="year_level">Select Year Level: </label>
+        <select id="year_level" require>
+          <option value="" selected disabled hidden>Please select</option>
+          <option value="1">First Year</option>
+          <option value="2">Second Year</option>
+          <option value="3">Third Year</option>
+          <option value="4">Fourth Year</option> 
+        </select>
+    </div>
 
 
 
@@ -109,9 +112,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <tbody class="divide-y divide-gray-100">
                 <?php foreach ($student_grade_list as $row): ?>
-                  
+
                   <tr class="bg-gray-300">
-                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_code'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_name'] ?></td>
                     <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['employee_name'] ?></td>
                     <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['year_level'] == 1 ? '1st Year' : ($row['year_level'] == 2 ? '2nd Year' : ($row['year_level'] == 3 ? '3rd Year' : '4th Year')) ?></td>
                     <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['semester'] == 1 ? '1st Semester' : ($row['semester'] == 2 ? '2nd Semester' : ($row['semester'] == 3 ? '3rd Semester' : '4th Semester')) ?></td>
@@ -129,17 +132,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         </div>
 
-        <a href="http://localhost/C_Student_Dashboard">DASHBOARD ></a>
-        <br>
-        <a href="http://localhost/C_Student_subject">CHECHLIST ></a>
-        <br>
-  <a href="http://localhost/C_Student_fyear">FIRST YEAR ></a>
-  <br>
-  <a href="http://localhost/C_Student_syear">SECOND YEAR ></a>
-  <br>
-  <a href="http://localhost/C_Student_tyear">THIRD YEAR ></a>
-  <br>
-  <a href="http://localhost/C_Student_ftyear">FOURTH YEAR ></a>
+        
+
 
 <!-- -------------------------------------------------------------------------------------JS FOR NAV BAR------------------------------------------------------------------------------------------------------------------------ -->
         <script>

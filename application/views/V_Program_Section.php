@@ -42,8 +42,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <a  href="http://localhost/C_Program_Dashboard/index">Student List ></a>
           </div>
 
-
-
           <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
             <!-- Profile dropdown -->
             
@@ -80,32 +78,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                       
 <div class="overflow-auto rounded-lg shadow mt-20">
+  
     <table>
         <thead class="bg-gray-200 border-b-2 border-gray-200 ">
                 <tr>
-                <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre>Section</pre></th>
+                <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre>Student Name</pre></th>
                 <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre></pre></th>
                 </tr>
             </thead>
 
          <tbody class="divide-y divide-gray-100">
-            <?php foreach ($course_section as $row): ?>
+            <?php foreach ($student_list as $row): ?>
             <tr class="bg-gray-300">
             
-                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['section_name'] ?></td>
-                <td class="p-3 text-sm whitespace-nowrap class ">
-                    <a href="/C_Program_Dashboard/section/?section_id=<?= $row['section_id'] ?>"><span class="p-1.5 text-xs font-medium uppercase tracking wider text-blue-800 rounded-lg hover:font-bold"><pre>Edit</pre></span></a>
-                </td>
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['student_name'] ?></td>
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['year_level'] == 1 ? '1st Year' : ($row['year_level'] == 2 ? '2nd Year' : ($row['year_level'] == 3 ? '3rd Year' : '4th Year')) ?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
     </div>
 
+    <br>
 
-
+    <div class="p-3 text-sm bg-blue-200">
+<form action="/C_Program_Dashboard/uploadStudentSection" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="section_id" value="<?=$section_id?>">
+    Select Excel to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input class="hover:text-blue-800 hover:text-bold hover:underline" type="submit" value="Upload Excel" name="submit">
+</form>
+</div>
  
-
+    
 
 
 
