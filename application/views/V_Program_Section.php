@@ -78,6 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                       
 <div class="overflow-auto rounded-lg shadow mt-20">
+  
     <table>
         <thead class="bg-gray-200 border-b-2 border-gray-200 ">
                 <tr>
@@ -98,10 +99,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </table>
     </div>
 
+    <br>
 
-
+    <div class="p-3 text-sm bg-blue-200">
+<form action="/C_Program_Dashboard/uploadStudentSection" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="section_id" value="<?=$section_id?>">
+    Select Excel to upload:
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input class="hover:text-blue-800 hover:text-bold hover:underline" type="submit" value="Upload Excel" name="submit">
+</form>
+</div>
  
-
+    
 
 
 

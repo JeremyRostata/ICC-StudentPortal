@@ -6,10 +6,6 @@ class M_Program_Dashboard extends CI_Model{
         parent::__construct();
     }
 
-
-
-
-
     public function fetchTeacherInfo($employee_id){
         $this->db->select('employee.employee_number');
         $this->db->select('employee.first_name');
@@ -49,5 +45,20 @@ class M_Program_Dashboard extends CI_Model{
         $this->db->where('section.section_id', $section_id);
        
         return $this->db->get()->result_array()[0];
+    }
+    
+    public function saveUploadedExcel($insert_array, $section_id){
+        
+        $this->db->set('section_id', $section_id);
+        $this->db->where('student_number',$insert_array['student_number']);
+        $this->db->update('students',$insert_array);
+        
+    }
+    public function emptySection($section_id){
+        
+        $this->db->set('section_id', 'null', false);
+        $this->db->where('section_id',$section_id);
+        $this->db->update('students');
+        
     }
 }
