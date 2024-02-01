@@ -54,14 +54,14 @@ class C_Program_Dashboard extends CI_Controller {
         
         $employee_id = $this->session->userdata('employee_id');
         $teacher_schedule_info = $this->M_Program_Dashboard->fetchTeacherInfo($employee_id);
-        $course_section = $this->M_Program_Dashboard->fetchCourseSection($employee_id);
+        $teacher_schedule = $this->M_Program_Dashboard->fetchTeacherSchedule($teacher_schedule_info['course_id']);
 
         $data = array( 
-            'teacher_schedule_info' => $teacher_schedule_info,
-            'course_section' => $course_section
+            'teacher_schedule_info' => $teacher_schedule_info,  
+            'teacher_schedule' => $teacher_schedule
         );
 
-		$this->load->view('V_Program_Dashboard', $data);
+		$this->load->view('V_Program_ScheduleList', $data);
     }
 
     
