@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2024 at 10:47 AM
+-- Generation Time: Feb 01, 2024 at 05:00 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -209,7 +209,7 @@ INSERT INTO `employee` (`employee_id`, `employee_number`, `first_name`, `middle_
 (2, '9998-0000', 'Mark', 'Red', 'Blue', '', 0, ''),
 (3, '0010-0000', 'Tan', 'Pogi', 'Pariente', 'MIS-HEAD', 0, '3.png'),
 (4, '0020-0000', 'Program', 'M', 'Head', '', 0, ''),
-(5, '0030-0000', 'Program', 'Head', 'BSIT', '', 2, ''),
+(5, '0030-0000', 'Program', 'Head', 'BSIT', '', 1, ''),
 (6, '0040-0000', 'Registrar', '', 'Registrar', '', 0, ''),
 (7, '0050-0000', 'Eleziel', '', 'Cantimbuhan', '', 0, '');
 
@@ -283,7 +283,7 @@ CREATE TABLE `schedule` (
 --
 
 INSERT INTO `schedule` (`schedule_id`, `employee_id`, `subject_id`, `schedule_remarks`, `room_remarks`, `year_level`, `section_id`, `semester`) VALUES
-(1, 1, 1, 'Tue, 8:00AM - 9:00AM', '(Online)', 1, 1, 1);
+(1, 1, 237, 'Tue, 8:00AM - 9:00AM', '(Online)', 1, 1, 1);
 
 -- --------------------------------------------------------
 
