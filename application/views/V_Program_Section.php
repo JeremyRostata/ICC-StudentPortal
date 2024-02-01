@@ -82,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <table>
         <thead class="bg-gray-200 border-b-2 border-gray-200 ">
                 <tr>
-                <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre>Section</pre></th>
+                <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre>Student Name</pre></th>
                 <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre></pre></th>
                 </tr>
             </thead>
