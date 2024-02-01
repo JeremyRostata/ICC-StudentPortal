@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2024 at 05:57 AM
+-- Generation Time: Feb 01, 2024 at 06:55 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -74,21 +74,23 @@ CREATE TABLE `employee` (
   `first_name` varchar(60) NOT NULL,
   `middle_name` varchar(60) NOT NULL,
   `last_name` varchar(60) NOT NULL,
-  `course_id` int(11) NOT NULL
+  `role` varchar(30) NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `profile_name` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`employee_id`, `employee_number`, `first_name`, `middle_name`, `last_name`, `course_id`) VALUES
-(1, '9999-9999', 'John', 'Doe', 'Doe', 0),
-(2, '9998-0000', 'Mark', 'Red', 'Blue', 0),
-(3, '0010-0000', 'Tan', 'MIS', 'Pariente', 0),
-(4, '0020-0000', 'Program', 'M', 'Head', 1),
-(5, '0030-0000', 'Program', 'Head', 'BSIT', 2),
-(6, '0040-0000', 'Registrar', '', 'Registrar', 0),
-(7, '0050-0000', 'Eleziel', '', 'Cantimbuhan', 0);
+INSERT INTO `employee` (`employee_id`, `employee_number`, `first_name`, `middle_name`, `last_name`, `role`, `course_id`, `profile_name`) VALUES
+(1, '9999-9999', 'John', 'Doe', 'Doe', '', 0, ''),
+(2, '9998-0000', 'Mark', 'Red', 'Blue', '', 0, ''),
+(3, '0010-0000', 'Tan', 'Pogi', 'Pariente', 'MIS-HEAD', 0, '3.png'),
+(4, '0020-0000', 'Program', 'M', 'Head', '', 0, ''),
+(5, '0030-0000', 'Program', 'Head', 'BSIT', '', 2, ''),
+(6, '0040-0000', 'Registrar', '', 'Registrar', '', 0, ''),
+(7, '0050-0000', 'Eleziel', '', 'Cantimbuhan', '', 0, '');
 
 -- --------------------------------------------------------
 
@@ -160,8 +162,7 @@ CREATE TABLE `schedule` (
 --
 
 INSERT INTO `schedule` (`schedule_id`, `employee_id`, `subject_id`, `schedule_remarks`, `room_remarks`, `year_level`, `section_id`, `semester`) VALUES
-(1, 1, 1, 'Tue, 8:00AM - 9:00AM', '(Online)', 1, 1, 1),
-(2, 2, 2, 'Wed, 9:00PM-10:00PM', '(Online)', 2, 2, 1);
+(1, 1, 1, 'Tue, 8:00AM - 9:00AM', '(Online)', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -183,6 +184,54 @@ INSERT INTO `section` (`section_id`, `section_name`, `course_id`) VALUES
 (1, 'BSCS1-A', 1),
 (2, 'BSCS2_A', 1),
 (3, 'BSIT1-A', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sem1`
+--
+
+CREATE TABLE `sem1` (
+  `subject_id` int(8) NOT NULL,
+  `subject_code` varchar(8) NOT NULL,
+  `subject_name` varchar(60) NOT NULL,
+  `course_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `sem1`
+--
+
+INSERT INTO `sem1` (`subject_id`, `subject_code`, `subject_name`, `course_id`) VALUES
+(1, '[CS 301]', '[Software Engineering 1]', 1),
+(2, '[CS 305]', '[Computer System Servicing]', 1),
+(3, '[CS 307]', '[Application Development and Emerging Technologies]', 1),
+(4, '[CS 309]', '[Web Development and Design]', 1),
+(5, '[CS 311]', '[Social Issues and Professional Practice]', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sem2`
+--
+
+CREATE TABLE `sem2` (
+  `subject_id` int(8) NOT NULL,
+  `subject_code` varchar(8) NOT NULL,
+  `subject_name` varchar(60) NOT NULL,
+  `course_id` int(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `sem2`
+--
+
+INSERT INTO `sem2` (`subject_id`, `subject_code`, `subject_name`, `course_id`) VALUES
+(1, '[CS 311]', '[Architecture and Organization]', 1),
+(2, '[CS 313]', '[Automata Theory and Formal Languages]', 1),
+(3, '[CSE 1]', '[CS Elective 1 (System Fundamental)]', 1),
+(4, '[CS 302]', '[Software Engineering 2]', 1),
+(5, '[CS 304]', '[Networks and Communications]', 1);
 
 -- --------------------------------------------------------
 
@@ -241,10 +290,9 @@ CREATE TABLE `students_schedule` (
 --
 
 INSERT INTO `students_schedule` (`student_schedule_id`, `year_level`, `semester`, `grade`, `prelim_grade`, `midterm_grade`, `final_grade`, `student_id`, `schedule_id`, `grade_remarks_id`) VALUES
-(3, 1, 1, '1.00', '80.00', '80.00', '90.00', 1, 1, 1),
+(3, 1, 1, '1.00', '80.00', '80.00', '90.00', 1, 1, 2),
 (4, 1, 1, '1.00', '90.00', '90.00', '90.00', 1, 2, 1),
-(7, 1, 1, '1.00', '90.00', '90.00', '90.00', 2, 1, 1),
-(9, 2, 1, NULL, NULL, NULL, NULL, 3, 2, 0);
+(7, 1, 1, '1.00', '90.00', '90.00', '90.00', 2, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -277,15 +325,38 @@ INSERT INTO `student_user` (`student_user_id`, `student_id`, `password`) VALUES
 CREATE TABLE `subject` (
   `subject_id` int(8) NOT NULL,
   `subject_code` varchar(8) NOT NULL,
-  `subject_name` varchar(60) NOT NULL
+  `subject_name` varchar(60) NOT NULL,
+  `course_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `subject`
 --
 
-INSERT INTO `subject` (`subject_id`, `subject_code`, `subject_name`) VALUES
-(1, 'CS 403', 'Human Computer Interaction');
+INSERT INTO `subject` (`subject_id`, `subject_code`, `subject_name`, `course_id`) VALUES
+(2, 'CS 301', 'Software Engineering 1', 0),
+(3, 'CS 303', 'Computer System Servicing', 0),
+(4, 'CS 305', 'Application Development and Emerging Technologies', 0),
+(5, 'CS 307', 'Web Development and Design', 0),
+(6, 'CS 309', 'Social Issues and Professional Practice', 0),
+(7, 'CS 311', 'Architecture and Organization', 0),
+(8, 'CS 313', 'Automata Theory and Formal Languages', 0),
+(9, 'CSE 1', 'CS Elective 1 (System Fundamental)', 0),
+(10, 'CS 302', 'Software Engineering 2', 0),
+(11, 'CS 304', 'Networks and Communications', 0),
+(12, 'CS 306', 'Programming Languages', 0),
+(13, 'CS 308', 'Advanced Web Programming DB', 0),
+(14, 'CS 310', 'Modeling and Simulation Theory', 0),
+(15, 'CS 312', 'System Analysis and Design', 0),
+(16, 'CS 314', 'Computer Security', 0),
+(17, 'CSE 2', 'CS Elective 2 (Graphics and Visual Computing)', 0),
+(18, 'CS 401', 'Operating Systems', 0),
+(19, 'CS 403', 'Human Computer Interaction', 0),
+(20, 'CSE 3', 'CS Elective 3 (intelligent System)', 0),
+(21, 'Thesis 1', 'CS Thesis Writing 1', 0),
+(22, 'EL 113', 'Survey of Philippine Literature', 0),
+(23, 'CS PRC', 'Practicum Internship', 0),
+(24, 'Thesis 2', 'CS Thesis Writing 2 (Software Project)', 0);
 
 --
 -- Indexes for dumped tables
@@ -338,6 +409,18 @@ ALTER TABLE `section`
   ADD UNIQUE KEY `section_name` (`section_name`);
 
 --
+-- Indexes for table `sem1`
+--
+ALTER TABLE `sem1`
+  ADD PRIMARY KEY (`subject_id`);
+
+--
+-- Indexes for table `sem2`
+--
+ALTER TABLE `sem2`
+  ADD PRIMARY KEY (`subject_id`);
+
+--
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
@@ -385,7 +468,7 @@ ALTER TABLE `course`
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `employee_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `employee_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `employee_user`
@@ -403,13 +486,25 @@ ALTER TABLE `grade_remarks`
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `schedule_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `schedule_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `section`
 --
 ALTER TABLE `section`
   MODIFY `section_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `sem1`
+--
+ALTER TABLE `sem1`
+  MODIFY `subject_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `sem2`
+--
+ALTER TABLE `sem2`
+  MODIFY `subject_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `students`
@@ -433,7 +528,7 @@ ALTER TABLE `student_user`
 -- AUTO_INCREMENT for table `subject`
 --
 ALTER TABLE `subject`
-  MODIFY `subject_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `subject_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
