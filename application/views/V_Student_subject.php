@@ -101,82 +101,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
     
-    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div class="relative flex h-16 items-center justify-between">
-        <div class="overflow-auto rounded-lg shadow mt-40">
-
-        <table class="w-full">
-            <thead class="bg-gray-200 border-b-2 border-gray-200 ">
-                <tr>
-                <th class="w-64 p-3 text-sm font-semibold tracking-wide text-left">Subject Code</th>
-                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Subject Name</th>
-                
-                
-
-                
-                </tr>
-            </thead>
-    </div>
-            <tbody class="divide-y divide-gray-100">
-            <?php foreach ($student_subject as $row): ?>
-              
-                  <tr class="bg-gray-300">
+    
         
-                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_name'] ?></td>
-                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_code'] ?></td>
-                  
-                  </tr>
-                
-                <?php endforeach; ?>
-            </tbody>
-<div class="two">
-
-            <thead class="bg-gray-200 border-b-2 border-gray-200 ">
-                <tr>
-                <th class="w-64 p-3 text-sm font-semibold tracking-wide text-left">Subject Code</th>
-                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Subject Name</th>
-                
-                
-
-                
-                </tr>
-            </thead>
-    </div>
-            <tbody class="divide-y divide-gray-100">
-            <?php foreach ($student_subject as $row): ?>
-              
-                  <tr class="bg-gray-300">
-        
-                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_name'] ?></td>
-                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_code'] ?></td>
-                  
-                  </tr>
-                
-                <?php endforeach; ?>
-            </tbody>
-     </div>
-            
-        </table>
-
-
-        
-            
-        
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        
-
-
-
-
-
-
-
-
 
 
 
@@ -216,14 +142,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </table>
 
 
-        
-            
-        
-</div>
-</div>
-</div>
+
+        </div>
+        </div>
+        </div>
 
 
+
+
+
+
+
+        
+
+<a href="http://localhost/C_Student_year">year1 ></a>
 
         
 
