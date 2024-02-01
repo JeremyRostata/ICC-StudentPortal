@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class M_Student_year extends CI_Model{
+class M_Student_ftyear extends CI_Model{
     public function __construct(){
         parent::__construct();
     }
@@ -36,22 +36,36 @@ class M_Student_year extends CI_Model{
         $this->db->from('subject');
         return $this->db->get()->result_array();
     }
+
+
+
     public function fetchSem1($student_id){  
         $this->db->select('subject_name');
         $this->db->select('subject_code');
+        $this->db->select('curriculum.year');
         $this->db->from('students');
         $this->db->join('course','students.course_id = course.course_id','left');
-        $this->db->join('sem1','course.course_id = sem1.course_id','left');
+        $this->db->join('curriculum','course.course_id = curriculum.course_id','left');
         $this->db->where('student_id', $student_id);
+        $this->db->where('curriculum.semester', 1);
+        $this->db->where('curriculum.year', 4);
         return $this->db->get()->result_array();
     }
+
+
+
+
+
+
     public function fetchSem2($student_id){  
         $this->db->select('subject_name');
         $this->db->select('subject_code');
         $this->db->from('students');
         $this->db->join('course','students.course_id = course.course_id','left');
-        $this->db->join('sem2','course.course_id = sem2.course_id','left');
+        $this->db->join('curriculum','course.course_id = curriculum.course_id','left');
         $this->db->where('student_id', $student_id);
+        $this->db->where('curriculum.semester', 2);
+        $this->db->where('curriculum.year', 4);
         return $this->db->get()->result_array();
     }
 
