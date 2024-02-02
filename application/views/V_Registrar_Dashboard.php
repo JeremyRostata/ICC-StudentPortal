@@ -11,9 +11,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="<?= base_url(); ?>">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/Employee_D.css?<?= filemtime('css/V_Registrar_Dashboard.css'); ?>">
+    <!-- <link rel="stylesheet" href="css/Employee_D.css?<?= filemtime('css/V_Registrar_Dashboard.css'); ?>"> -->
 </head>
-<body>
+<body class="bg-gradient-to-r from-blue-400 to-blue-700">
  <!-- -----------------------------------------------------------------------------NAVIGATION BAR SECTION-------------------------------------------------------------------------------------------------------------------------------- -->
  <nav class="bg-gray-800">
       <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="relative flex h-16 items-center justify-between">
             <div class="overflow-auto rounded-lg shadow mt-40">
 
-            <div class="bg-gray-200 border-gray-200 ">
+            <div class="bg-gray-200 border-gray-200 text-center pt-2">
             <span>Welcome! <?= $registrar_info['last_name'] . ', ' . $registrar_info['first_name'] ?></span><br><br>
 
 <span><?= !empty($message) ? $message : '' ?></span>
@@ -87,8 +87,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <br><br>
     
-
-    <a href="C_Registrar_students">STUDENTS ></a>
+    <a class="p-2 rounded ml-12 bg-blue-200 border-gray-200 hover:bg-gray-800 hover:text-gray-200" href="C_Registrar_students">STUDENTS  ></a>
+    
     <script>
       function toggleProfileDropdown() {
           var dropdown = document.getElementById("myProfileDropdown");
