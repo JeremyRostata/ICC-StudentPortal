@@ -91,8 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
   <div id="myOptionsDropdown" class="hidden absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-blue-200 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
     <div class="py-1" role="none">
-      <a href="http://localhost/C_Student_Dashboard" class="text-gray-900 hover:bg-gray-800 hover:text-white block rounded-md px-3 py-2 text-base font-medium font-mono">DASHBOARD</a>
-          <a href="http://localhost/C_Student_subject" class="text-gray-900 hover:bg-gray-800 hover:text-white block rounded-md px-3 py-2 text-base font-medium font-mono">CHECKLIST</a>
+      <a href="http://localhost/C_Student_subject" class="text-gray-900 hover:bg-gray-800 hover:text-white block rounded-md px-3 py-2 text-base font-medium font-mono">CHECKLIST</a>
           <a href="http://localhost/C_Student_fyear" class="text-gray-900 hover:bg-gray-800 hover:text-white block rounded-md px-3 py-2 text-base font-medium font-mono">FIRST YEAR</a>
           <a href="http://localhost/C_Student_syear" class="text-gray-900 hover:bg-gray-800 hover:text-white block rounded-md px-3 py-2 text-base font-medium font-mono">SECOND YEAR</a>
           <a href="http://localhost/C_Student_tyear" class="text-gray-900 hover:bg-gray-800 hover:text-white block rounded-md px-3 py-2 text-base font-medium font-mono">THIRD YEAR</a>
@@ -123,7 +122,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre><?= $row['subject_name'] ?></pre></td>
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre>   <?= $row['subject_code'] ?></pre></td>
-                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre></pre></td>
+                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre><?= $row['grade'] ?></pre></td>
+                  
                   </tr>
                 
                 <?php endforeach; ?>
@@ -151,7 +151,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre><?= $row['subject_name'] ?></pre></td>
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre>   <?= $row['subject_code'] ?></pre></td>
-                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre></pre></td>
+                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre></pre><?= $row['grade'] ?></td>
                   </tr>
                 
                 <?php endforeach; ?>
@@ -177,7 +177,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre><?= $row['subject_name'] ?></pre></td>
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre>   <?= $row['subject_code'] ?></pre></td>
-                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre></pre></td>
+                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre></pre><?= $row['grade'] ?></td>
                   </tr>
                 
                 <?php endforeach; ?>
@@ -201,7 +201,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre><?= $row['subject_name'] ?></pre></td>
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre>   <?= $row['subject_code'] ?></pre></td>
-                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre></pre></td>
+                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre><?= $row['grade'] ?></pre></td>
                   </tr>
                 
                 <?php endforeach; ?>
@@ -227,7 +227,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre><?= $row['subject_name'] ?></pre></td>
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre>   <?= $row['subject_code'] ?></pre></td>
-                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre></pre></td>
+                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre><?= $row['grade'] ?></pre></td>
                   </tr>
                 
                 <?php endforeach; ?>
@@ -251,7 +251,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre><?= $row['subject_name'] ?></pre></td>
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre>   <?= $row['subject_code'] ?></pre></td>
-                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre></pre></td>
+                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre><?= $row['grade'] ?></pre></td>
                   </tr>
                 
                 <?php endforeach; ?>
@@ -277,7 +277,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre><?= $row['subject_name'] ?></pre></td>
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre>   <?= $row['subject_code'] ?></pre></td>
-                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre></pre></td>
+                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre><?= $row['grade'] ?></pre></td>
                   </tr>
                 
                 <?php endforeach; ?>
@@ -301,7 +301,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre><?= $row['subject_name'] ?></pre></td>
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre>   <?= $row['subject_code'] ?></pre></td>
-                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre></pre></td>
+                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre><?= $row['grade'] ?></pre></td>
                   </tr>
                 
                 <?php endforeach; ?>
@@ -314,7 +314,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         </main>
        
-   
+      
+        
+
+        
+
+
+
+
+
+
+
+        
+        <a href="http://localhost/C_Student_Dashboard">DASHBOARD ></a>
+        <br>
+  <a href="http://localhost/C_Student_subject">CHECKLIST ></a>
+        <br>
+  <a href="http://localhost/C_Student_fyear">FIRST YEAR ></a>
+  <br>
+  <a href="http://localhost/C_Student_syear">SECOND YEAR ></a>
+  <br>
+  <a href="http://localhost/C_Student_tyear">THIRD YEAR ></a>
+  <br>
+  <a href="http://localhost/C_Student_ftyear">FOURTH YEAR ></a>
+        
 
 <!-- -------------------------------------------------------------------------------------JS FOR NAV BAR------------------------------------------------------------------------------------------------------------------------ -->
         <script>

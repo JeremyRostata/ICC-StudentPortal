@@ -5,6 +5,11 @@ class C_Student_subject extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
+
+        if(empty($_SESSION['student_id'])){
+            redirect('C_Student_Login');
+        }
+
         $this->load->model('M_Student_subject'); 
     }
 
