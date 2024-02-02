@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
           <div class="profilePicture">
             <form action="/C_MIS_Profile/imageUpload" method="post" enctype="multipart/form-data">
-              <input name="profile_pic" id="profile_pic" type="file">
+              <input name="profile_pic" id="profile_pic" type="file"> 
               <input type="submit" name="submit" value="Upload">
             </form>
           </div>
