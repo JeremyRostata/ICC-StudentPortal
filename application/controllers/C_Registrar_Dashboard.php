@@ -6,7 +6,7 @@ class C_Registrar_Dashboard extends CI_Controller {
     public function __construct(){
         parent::__construct();
         
-        if(empty($_SESSION['employee_id'])){
+        if(empty($_SESSION['employee_id'])){ 
             redirect('C_Employee_Login');
         }
         $this->load->library('excel');
@@ -17,12 +17,15 @@ class C_Registrar_Dashboard extends CI_Controller {
     public function index(){
         
         $employee_id = $this->session->userdata('employee_id');
-        $registrar_info = $this->M_Registrar_Dashboard->fetchRegistrarInfo($employee_id);
+        $registrar_info = $this->M_Registrar_Dashboard->fetchRegistrarInfo($employee_id); 
+        $role_list = $this->M_Registrar_Dashboard->fetchAccessRoleId($employee_id);
         
         $data = array( 
-            'registrar_info' => $registrar_info
+            'registrar_info' => $registrar_info,
+            'role_list'=> $role_list
         );
 		$this->load->view('V_Registrar_Dashboard', $data);
+        
     }
 
     public function studentUpload(){
@@ -31,7 +34,7 @@ class C_Registrar_Dashboard extends CI_Controller {
         $cell_collection = $objPHPExcel->getActiveSheet()->getCellCollection();
  
 
-        foreach ($cell_collection as $cell) {
+        foreach ($cell_collection as $cell) { 
             $column = $objPHPExcel->getActiveSheet()->getCell($cell)->getColumn();
             $row = $objPHPExcel->getActiveSheet()->getCell($cell)->getRow();
             $data_value = $objPHPExcel->getActiveSheet()->getCell($cell)->getValue();
@@ -55,7 +58,7 @@ class C_Registrar_Dashboard extends CI_Controller {
                 'year_level' => $row['G']
             );
 
-            $this->M_Registrar_Dashboard->saveUploadedExcel($insert_array);
+            $this->M_Registrar_Dashboard->saveUploadedExcel($insert_array); 
         }
 
         $this->session->set_flashdata('message','Save Successful!');
