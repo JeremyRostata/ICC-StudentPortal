@@ -80,6 +80,30 @@ class C_Program_Dashboard extends CI_Controller {
 		$this->load->view('V_Program_CreateSchedule', $data);
     }
 
+    public function createSection(){
+        
+        $employee_id = $this->session->userdata('employee_id');
+        $teacher_schedule_info = $this->M_Program_Dashboard->fetchTeacherInfo($employee_id);
+
+        $data = array(
+            'teacher_schedule_info' => $teacher_schedule_info
+        );
+
+		$this->load->view('V_Program_CreateSection', $data);
+    }
+
+    public function createSectionId(){
+        
+        $section_name = $this->input->post('section_name');
+        $year_level = $this->input->post('year_level');
+        $employee_id = $this->session->userdata('employee_id');
+        $teacher_schedule_info = $this->M_Program_Dashboard->fetchTeacherInfo($employee_id);
+        
+        $this->M_Program_Dashboard->createSection($section_name, $teacher_schedule_info['course_id'], $year_level);
+
+        redirect("/C_Program_Dashboard/sectionList");
+    }
+
     public function schedule(){
         
         $employee_id = $this->session->userdata('employee_id');
@@ -157,13 +181,19 @@ class C_Program_Dashboard extends CI_Controller {
     
     public function deleteSchedule(){
         
-        $employee_id = $this->session->userdata('employee_id');
         $schedule_id = $this->input->get('schedule_id');
-        $teacher_schedule_info = $this->M_Program_Dashboard->deleteSchedule($schedule_id);
+        $this->M_Program_Dashboard->deleteSchedule($schedule_id);
 
         redirect("/C_Program_Dashboard/scheduleList");
     }
 
+    public function deleteSection(){
+        
+        $section_id = $this->input->get('section_id');
+        $this->M_Program_Dashboard->deleteSection($section_id);
+
+        redirect("/C_Program_Dashboard/sectionList");
+    }
     
     public function addSection(){
 

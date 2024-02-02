@@ -35,17 +35,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <a class="flex space-x-4">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                 <h1 class="text-gray-100 mt-5">     <span> <?= $teacher_schedule_info['course_name'] ?></span></h1> 
-                
             </div>
-            
-          <div class="ml-5 mt-5">
-            <a  href="http://localhost/C_Program_Dashboard/index">Section</a>
-          </div>
-          <div class="ml-5 mt-5">
-            <a  href="http://localhost/C_Program_Dashboard/scheduleList">Schedule</a>
-          </div>
-          </div>
 
+            
+            <div class="ml-5 mt-5">
+              <a  href="http://localhost/C_Program_Dashboard/index">Section</a>
+            </div>
+            <div class="ml-5 mt-5">
+              <a  href="http://localhost/C_Program_Dashboard/scheduleList">Schedule</a>
+            </div>
+          </div>
 
 
 
@@ -83,41 +82,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-                      
-<div class="overflow-auto rounded-lg shadow mt-20">
-    <table>
-        <thead class="bg-gray-200 border-b-2 border-gray-200 ">
-                <tr>
-                <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre>Section</pre></th>
-                <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre></pre></th>
-                <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre></pre></th>
-                </tr>
-            </thead>
+<div class="overflow-auto rounded-lg shadow mt-20 ">
 
-         <tbody class="divide-y divide-gray-100">
-            <?php foreach ($course_section as $row): ?>
-            <tr class="bg-gray-300">
-            
-                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['section_name'] ?></td>
-                <td class="p-3 text-sm whitespace-nowrap class ">
-                    <a href="/C_Program_Dashboard/section/?section_id=<?= $row['section_id'] ?>"><span class="p-1.5 text-xs font-medium uppercase tracking wider text-blue-800 rounded-lg hover:font-bold"><pre>Edit</pre></span></a>
-                </td>
-                <td class="p-3 text-sm whitespace-nowrap class">
-                    <a href="/C_Program_Dashboard/deleteSection/?section_id=<?= $row['section_id'] ?>"><span class="p-1.5 text-xs font-medium uppercase tracking wider text-blue-800 rounded-lg hover:font-bold"><pre>Delete</pre></span></a>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-</div>
+    <form action=/C_Program_Dashboard/createSectionId method="post" target="_self">
+        <h2>CREATE SECTION</h2>
 
-    <form action=/C_Program_Dashboard/createSection method="post" target="_self">
-      <input class="hover:bg-blue-200 hover:text-gray-800" type="submit" value="Create Section">    
+        <div class="inputdiv">
+        <label for="section_name">Section:</label><br>
+        <input type="text" id="section_name" name="section_name">
+        </div>
+        
+        <div class="inputdiv">
+        <label for="year_level">Year Level: </label><br>
+        <select class="text-gray-800" id="year_level" name="year_level">
+            <option value="" hidden>-</option>
+            <option value="1">1st Year</option>
+            <option value="2">2nd Year</option>
+            <option value="3">3rd Year</option>
+            <option value="4">4th Year</option>
+        </select>
+        </div>
+
+        <input class="hover:bg-blue-200 hover:text-gray-800" type="submit" value="Create">    
     </form>
- 
 
-
-
+    <form action=/C_Program_Dashboard/sectionList method="post" target="_self">
+      <input class="hover:bg-blue-200 hover:text-gray-800" type="submit" value="Back">    
+    </form>
+</div>
 
 <script>
       function toggleProfileDropdown() {

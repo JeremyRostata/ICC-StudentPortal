@@ -26,6 +26,7 @@ class M_Program_Dashboard extends CI_Model{
         $this->db->join('course','employee.course_id = course.course_id','left');
         $this->db->join('section','course.course_id = section.course_id','left');
         $this->db->where('employee.employee_id', $employee_id);
+        $this->db->order_by('section.section_name');
        
         return $this->db->get()->result_array();
     }
@@ -120,6 +121,19 @@ class M_Program_Dashboard extends CI_Model{
     
         $this->db->insert('schedule', $data);
     }
+    
+    public function createSection($section_name, $course_id, $year_level)
+    {
+        
+        $data = array(
+            'section_name' => $section_name,
+            'course_id' => $course_id,
+            'year_level' => $year_level
+
+        );
+    
+        $this->db->insert('section', $data);
+    }
     public function fetchStudentScheduleList($schedule_id){
         
         $section_id = $this->fetchScheduleSection($schedule_id);
@@ -177,6 +191,16 @@ class M_Program_Dashboard extends CI_Model{
         
         $this->db->where('schedule_id', $schedule_id);
         $this->db->delete('students_schedule');
+    }
+    
+    public function deleteSection($section_id){
+        $this->db->where('section_id', $section_id);
+        $this->db->delete('section');
+
+        
+        $this->db->set('section_id', 'NULL');
+        $this->db->where('section_id', $section_id);
+        $this->db->update('students');
     }
     
     public function deleteStudentSchedule($schedule_id){
