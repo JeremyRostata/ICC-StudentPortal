@@ -98,12 +98,12 @@ input.create:active{
     padding: 2px 4px;
 }
 
-table{
+/* table{
     visibility: visible;
     position: absolute;
     top: 30px;
     left: 25vw;
-}
+} */
 .two{
     visibility: visible;
     position: absolute;
