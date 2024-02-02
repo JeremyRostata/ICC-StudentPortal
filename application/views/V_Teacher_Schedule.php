@@ -74,8 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
   
-    <!-- <div class="mx-auto max-w-9xl px-2 sm:px-6 lg:px-8">
-        <div class="relative flex h-16 items-center justify-between"> -->
+   
           
             <div class="">
             <table>
@@ -116,19 +115,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </td>
                 <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['section_name'] ?></td>
                 <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"></td>
-                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="prelim_grade[]" value="<?= $row['prelim_grade'] ?>">
+                
+                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="prelim_grade[]" value="<?= $row['prelim_grade'] ?>">
                 <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="midterm_grade[]" value="<?= $row['midterm_grade'] ?>">
                 <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="final_grade[]" value="<?= $row['final_grade'] ?>">
                 <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="grade[]" value="<?= $row['grade'] ?>">
-                  
-
-
-
                 <td class="p-3 text-sm whitespace-nowrap class bg-blue-200">
-                    <select class="opt" name="grade_remarks_id[]" value="<?= $row['grade_remarks_id'] ?>"> 
+                    <select class="opt" name="grade_remarks_id[]" value="<?= $row['grade_remarks_id'] ?>" disabled> 
                         <option value="" hidden>-</option>
                         <?php foreach ($grade_remarks_list as $option) : ?>
-                        <option value="<?= $option['grade_remarks_id'] ?>">
+                        <option value="<?= $option['grade_remarks_id'] ?>" <?=$row['grade_remarks_id'] == $option['grade_remarks_id'] ? 'Selected' :''?>>
                         <?= $row['grade_remarks_id'] == $option['grade_remarks_id'] ? '' : ''?>
                         <?= $option['grade_remarks_id'] . ' - ' . $option['grade_remarks_name'] ?>
                         </option>
@@ -143,8 +139,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </form>
     </table>
             </div>
-        <!-- </div>
-    </div> -->
+      
 
     
 

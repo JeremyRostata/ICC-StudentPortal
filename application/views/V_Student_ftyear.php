@@ -11,12 +11,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="<?= base_url(); ?>">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css\V_Student_Dashboard.css?<?= filemtime('css\V_Student_Dashboard.css'); ?>">
+    <link rel="stylesheet" href="css\V_Student_year.css?<?= filemtime('css\V_Student_year.css'); ?>">
+
+
+
+    
+
+
+
     </head>
+
+
+
+
 
 <body>
 <!-- -----------------------------------------------------------------------------NAVIGATION BAR SECTION-------------------------------------------------------------------------------------------------------------------------------- -->
+
 <nav class="bg-gray-800">
+
       <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
 
@@ -34,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="hidden sm:ml-6 sm:block">
               <a class="flex space-x-4">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <h1 class="text-gray-100 mt-5"><span> <?= $student_info['course_name'] ?></span></h1>  
+                <h1 class="text-gray-100 mt-5"><span> <?= $student_info['course_name'] ?> | FOURTH YEAR</span></h1>  
               
             </div>
           </div>
@@ -74,47 +87,57 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </nav>
 
+    
+
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
     
 
 
+    
+    
+        
 
-    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+
+
+
+
+
+
+    
+<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
         <div class="overflow-auto rounded-lg shadow mt-40">
 
         <table class="w-full">
+        
             <thead class="bg-gray-200 border-b-2 border-gray-200 ">
                 <tr>
-                <th class="w-64 p-3 text-sm font-semibold tracking-wide text-left">Subjects</th>
+                <th class="w-64 p-3 text-sm font-semibold tracking-wide text-left"><pre>Subject Code</th>
 
-                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Teacher</th>
+                <th class="w-64 p-3 text-sm font-semibold tracking-wide text-left"><pre>Subject Name</th>
 
-                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Year Level</th>
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Teacher</th>
 
-                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Semester</th>
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Preliminary Grade</th> 
 
-                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Preliminary Grade</th> 
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Midterm Grade</th>
 
-                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Midterm Grade</th>
-
-                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Finals Grade</th>
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Finals Grade</th>
                 
-                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Grade</th>
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Grade</th>
 
-                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Remarks</th>
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Remarks</th>
                 </tr>
             </thead>
 
             <tbody class="divide-y divide-gray-100">
-                <?php foreach ($student_grade_list as $row): ?>
+                <?php foreach ($sem1 as $row): ?>
                   
                   <tr class="bg-gray-300">
                     <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_code'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_name'] ?></td>
                     <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['employee_name'] ?></td>
-                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['year_level'] == 1 ? '1st Year' : ($row['year_level'] == 2 ? '2nd Year' : ($row['year_level'] == 3 ? '3rd Year' : '4th Year')) ?></td>
-                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['semester'] == 1 ? '1st Semester' : ($row['semester'] == 2 ? '2nd Semester' : ($row['semester'] == 3 ? '3rd Semester' : '4th Semester')) ?></td>
                     <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['prelim_grade'] ?></td>
                     <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['midterm_grade'] ?></td>
                     <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['final_grade'] ?></td>
@@ -124,15 +147,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                 <?php endforeach; ?>
             </tbody>
+            
+<!----------------------------------------------------Second Sem --------------------------------------------------------------->
+
+
+<thead class="bg-gray-200 border-b-2 border-gray-200 ">
+                <tr>
+                <th class="w-64 p-3 text-sm font-semibold tracking-wide text-left"><pre>Subject Code</th>
+
+                <th class="w-64 p-3 text-sm font-semibold tracking-wide text-left"><pre>Subject Name</th>
+
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Teacher</th>
+
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Preliminary Grade</th> 
+
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Midterm Grade</th>
+
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Finals Grade</th>
+                
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Grade</th>
+
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Remarks</th>
+                </tr>
+            </thead>
+
+            <tbody class="divide-y divide-gray-100">
+                <?php foreach ($sem2 as $row): ?>
+                  
+                  <tr class="bg-gray-300">
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_code'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_name'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['employee_name'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['prelim_grade'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['midterm_grade'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['final_grade'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['grade'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['grade_remarks_name'] ?></td>
+                  </tr>
+
+                <?php endforeach; ?>
+            </tbody>
+            </section>
+          
         </table>
         </div>
         </div>
         </div>
 
-        <a href="http://localhost/C_Student_Dashboard">DASHBOARD ></a>
-        <br>
-        <a href="http://localhost/C_Student_subject">CHECHLIST ></a>
-        <br>
+        
+
+
+        <a href="http://localhost/C_Student_subject">DASHBOARD ></a>
+  <br>
   <a href="http://localhost/C_Student_fyear">FIRST YEAR ></a>
   <br>
   <a href="http://localhost/C_Student_syear">SECOND YEAR ></a>
@@ -140,7 +206,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <a href="http://localhost/C_Student_tyear">THIRD YEAR ></a>
   <br>
   <a href="http://localhost/C_Student_ftyear">FOURTH YEAR ></a>
-
 <!-- -------------------------------------------------------------------------------------JS FOR NAV BAR------------------------------------------------------------------------------------------------------------------------ -->
         <script>
       function toggleProfileDropdown() {

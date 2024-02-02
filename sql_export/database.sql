@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 01, 2024 at 05:00 PM
+-- Generation Time: Feb 02, 2024 at 04:49 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -60,7 +60,8 @@ CREATE TABLE `course` (
 
 INSERT INTO `course` (`course_id`, `course_code`, `course_name`) VALUES
 (1, 'BSCS', 'Bachelor of Science in Computer Science'),
-(2, 'BSIT', 'Bachelor of Science in Information Technology');
+(2, 'BSIT', 'Bachelor of Science in Information Technology'),
+(3, 'BSBA', 'Bachelor of Science in Business Administration');
 
 -- --------------------------------------------------------
 
@@ -195,7 +196,6 @@ CREATE TABLE `employee` (
   `first_name` varchar(60) NOT NULL,
   `middle_name` varchar(60) NOT NULL,
   `last_name` varchar(60) NOT NULL,
-  `role` varchar(30) NOT NULL,
   `course_id` int(11) NOT NULL,
   `profile_name` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -204,14 +204,14 @@ CREATE TABLE `employee` (
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`employee_id`, `employee_number`, `first_name`, `middle_name`, `last_name`, `role`, `course_id`, `profile_name`) VALUES
-(1, '9999-9999', 'John', 'Doe', 'Doe', '', 0, ''),
-(2, '9998-0000', 'Mark', 'Red', 'Blue', '', 0, ''),
-(3, '0010-0000', 'Tan', 'Pogi', 'Pariente', 'MIS-HEAD', 0, '3.png'),
-(4, '0020-0000', 'Program', 'M', 'Head', '', 0, ''),
-(5, '0030-0000', 'Program', 'Head', 'BSIT', '', 1, ''),
-(6, '0040-0000', 'Registrar', '', 'Registrar', '', 0, ''),
-(7, '0050-0000', 'Eleziel', '', 'Cantimbuhan', '', 0, '');
+INSERT INTO `employee` (`employee_id`, `employee_number`, `first_name`, `middle_name`, `last_name`, `course_id`, `profile_name`) VALUES
+(1, '9999-9999', 'John', 'Doe', 'Doe', 0, ''),
+(2, '9998-0000', 'Mark', 'Red', 'Blue', 0, ''),
+(3, '0010-0000', 'Tan', 'Pogi', 'Pariente', 0, '3.png'),
+(4, '0020-0000', 'Program', 'M', 'Head', 0, ''),
+(5, '0030-0000', 'Program', 'Head', 'BSIT', 2, ''),
+(6, '0040-0000', 'Registrar', '', 'Registrar', 0, ''),
+(7, '0050-0000', 'Eleziel', '', 'Cantimbuhan', 0, '');
 
 -- --------------------------------------------------------
 
@@ -457,31 +457,31 @@ CREATE TABLE `subject` (
 --
 
 INSERT INTO `subject` (`subject_id`, `subject_code`, `subject_name`, `course_id`) VALUES
-(237, 'CS 101', 'Introduction to Computing', 0),
-(238, 'CS 103', 'Computer Programming 1', 0),
-(239, 'GE 1', 'Understanding the Self', 0),
-(240, 'GE 2', 'Reading In Philippine History', 0),
-(241, 'Fil 1', 'Dalumat ng/sa Filipino (DALUMATFIL)', 0),
-(242, 'NSTP 1', 'National Service Training Program 1', 0),
-(243, 'PE 1', 'Physical Education 1', 0),
-(244, 'CS 102', 'Discrete Structures 1', 0),
-(245, 'CS 104', 'Computer Programming 2 (Intermediate Programming)', 0),
-(246, 'GE 3 ', 'The Contemporary World', 0),
-(247, 'GE 4', 'Mathematics in the Modern World', 0),
-(248, 'Fil 2', 'Panitikan', 0),
-(249, 'NSTP 2', 'National Service Training Program 2', 0),
-(250, 'PE 2', 'Physical Education 2', 0),
-(251, 'CS 201', 'Computer Programming 3 (Object Oriented Programming)', 0),
-(252, 'CS 203', 'Discrete Structure 2', 0),
-(253, 'CS 205', 'Data Structures and Algorithms', 0),
-(254, 'CS 207', 'Information Assurance and Security', 0),
-(255, 'GE 5', 'Purposive Communication', 0),
-(256, 'GE 6', 'Art Appreciation', 0),
-(257, 'STAT', 'Research Statistics for IT', 0),
-(258, 'PE 3', 'Physical Education 3', 0),
-(259, 'CS 202', 'Computer Programming 4 (SQL for Data Science)', 0),
-(260, 'CS 204', 'Algorithm and Complexity', 0),
-(261, 'CS 206', 'Information Management', 0),
+(237, 'CS 101', 'Introduction to Computing', 1),
+(238, 'CS 103', 'Computer Programming 1', 1),
+(239, 'GE 1', 'Understanding the Self', 1),
+(240, 'GE 2', 'Reading In Philippine History', 1),
+(241, 'Fil 1', 'Dalumat ng/sa Filipino (DALUMATFIL)', 1),
+(242, 'NSTP 1', 'National Service Training Program 1', 1),
+(243, 'PE 1', 'Physical Education 1', 1),
+(244, 'CS 102', 'Discrete Structures 1', 1),
+(245, 'CS 104', 'Computer Programming 2 (Intermediate Programming)', 1),
+(246, 'GE 3 ', 'The Contemporary World', 1),
+(247, 'GE 4', 'Mathematics in the Modern World', 1),
+(248, 'Fil 2', 'Panitikan', 1),
+(249, 'NSTP 2', 'National Service Training Program 2', 1),
+(250, 'PE 2', 'Physical Education 2', 1),
+(251, 'CS 201', 'Computer Programming 3 (Object Oriented Programming)', 1),
+(252, 'CS 203', 'Discrete Structure 2', 1),
+(253, 'CS 205', 'Data Structures and Algorithms', 1),
+(254, 'CS 207', 'Information Assurance and Security', 1),
+(255, 'GE 5', 'Purposive Communication', 1),
+(256, 'GE 6', 'Art Appreciation', 1),
+(257, 'STAT', 'Research Statistics for IT', 1),
+(258, 'PE 3', 'Physical Education 3', 1),
+(259, 'CS 202', 'Computer Programming 4 (SQL for Data Science)', 1),
+(260, 'CS 204', 'Algorithm and Complexity', 1),
+(261, 'CS 206', 'Information Management', 1),
 (262, 'CS 208', 'Logic Design and Switching Theory', 0),
 (263, 'GE 7', 'Science, Technology and Society', 0),
 (264, 'GE 8', 'Ethics and Philosophy ', 0),
@@ -652,88 +652,10 @@ ALTER TABLE `subject`
 --
 
 --
--- AUTO_INCREMENT for table `access_role`
---
-ALTER TABLE `access_role`
-  MODIFY `access_role_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `course`
---
-ALTER TABLE `course`
-  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `curriculum`
---
-ALTER TABLE `curriculum`
-  MODIFY `curriculum_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
-
---
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
   MODIFY `employee_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `employee_user`
---
-ALTER TABLE `employee_user`
-  MODIFY `employee_user_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
--- AUTO_INCREMENT for table `grade_remarks`
---
-ALTER TABLE `grade_remarks`
-  MODIFY `grade_remarks_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `schedule`
---
-ALTER TABLE `schedule`
-  MODIFY `schedule_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `section`
---
-ALTER TABLE `section`
-  MODIFY `section_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `sem1`
---
-ALTER TABLE `sem1`
-  MODIFY `subject_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `sem2`
---
-ALTER TABLE `sem2`
-  MODIFY `subject_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `students`
---
-ALTER TABLE `students`
-  MODIFY `student_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-
---
--- AUTO_INCREMENT for table `students_schedule`
---
-ALTER TABLE `students_schedule`
-  MODIFY `student_schedule_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `student_user`
---
-ALTER TABLE `student_user`
-  MODIFY `student_user_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `subject`
---
-ALTER TABLE `subject`
-  MODIFY `subject_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=331;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

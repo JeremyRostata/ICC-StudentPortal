@@ -13,10 +13,10 @@ class M_Student_Management extends CI_Model{
         $this->db->select('student_id');
         $this->db->select('picture');
         $this->db->from('students');
-        return $this->db->get()->result_array();
+        return $this->db->get()->result_array();  
     }
     
-    public function studentCreate($student_id, $password)
+    public function studentCreate($student_id, $password) 
     {
         
         $data = array(

@@ -101,14 +101,14 @@ input.create:active{
 table{
     visibility: visible;
     position: absolute;
-    top: 30px;
-    left: 25vw;
+    top: 60px;
+    left: -30vw;
 }
 .tb{
     visibility: visible;
     position: absolute;
     top: 60px;
-    left: 30vw;
+    left: 80vw;
 }
 
 tr:first-child th:first-child { border-top-left-radius: 10px; }

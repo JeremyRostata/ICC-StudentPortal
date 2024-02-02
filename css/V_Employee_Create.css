@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-    user-select: none;
     font-family: Arial, Helvetica, sans-serif;
 }
 html{
@@ -9,20 +8,16 @@ html{
     height: 100%;
 }
 body{
-    /* background-image: linear-gradient(to right bottom, #4b17da, #18055b, 
-    #140551, #110448, #0f013f); */
     background-image: radial-gradient(circle, #005ce7, #0071f1, #0084f8,  
     #0096fc, #1fa8ff);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%; 
-    height: 100%;
+    height: 100%; 
     overflow: hidden;
 }
 header{
     color: whitesmoke;
-    /* background-image: linear-gradient(to right top, #1e0074, #180267,
-    #13035a, #10034d, #0e0041); */
     background-image: linear-gradient(to right, #0549af, #0057b6, #0064bb, #0071bf, #117dc2);
     box-shadow: 10px 7px 15px black;
     margin-bottom: 10px;
@@ -34,15 +29,14 @@ header h1{
     width: 550px;
 }
 .login{
-    width: 25%;
+    
     color: whitesmoke;
     justify-content: center;
     margin: auto;
-    margin-top: 15%;
+    margin-top: 6%;
+    margin-left: 7%;
     position: absolute; 
-    /* background-color: rgba(0,0,0, 0.4); 
-    box-shadow: 10px 7px 15px black; */
-    border-radius: 10px;
+    padding: 10px;
 }
 .logo img{
     position: absolute;
@@ -57,11 +51,28 @@ header h1{
 }
 .login form{
     text-align: center;
-    padding: 15px;
+    padding: 0px;
+    width: 300px;
 }
 .login label{
     font-size: 15px;
     padding: 5px;
+}
+.login input{
+    color: black;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+}
+select#access_role_id, select#course_id{
+    color: black;
+    text-align: center;
+}
+input#submit{
+    color: whitesmoke;
+}
+input#submit:hover{
+    color: black;
 }
 .login .login_button{
     background: none;
@@ -85,8 +96,8 @@ select, input, textarea, option{
 textarea:focus, input:focus {
     color: #000000;
 }
-.inputdiv{
-    margin: 10px;
+textarea{
+    color: #000000;
 }
 input.create{
     font-size: 15px;
@@ -141,6 +152,9 @@ input.create{
 }
 .back:hover{
     background-color: rgba(0,0,0, 0.1);
+}
+.pass{
+    display: none;
 }
 @media screen and (min-width: 600px) {
     .logo img{

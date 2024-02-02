@@ -1,7 +1,6 @@
 *{
     margin: 0;
     padding: 0;
-    user-select: none;
     font-family: Arial, Helvetica, sans-serif;
 }
 html{
@@ -9,8 +8,6 @@ html{
     height: 100%;
 }
 body{
-    /* background-image: linear-gradient(to right bottom, #4b17da, #18055b, 
-    #140551, #110448, #0f013f); */
     background-image: radial-gradient(circle, #005ce7, #0071f1, #0084f8, 
     #0096fc, #1fa8ff);
     background-repeat: no-repeat;
@@ -22,136 +19,65 @@ body{
 nav{
     box-shadow: 10px 7px 15px black;
 }
-header{
-    color: whitesmoke;
-    background-image: linear-gradient(to right top, #1e0074, #180267,
-    #13035a, #10034d, #0e0041);
+nav h1{
+    text-align: center;
+    color: white;
+    font-size: 20px;
     margin-bottom: 10px;
 }
-header h1{
-    font-size: 30px;
-    padding: 10px 15px 10px 50px;
+nav h1 span{
+    word-spacing: 10px;
+    margin-left: 10px;
 }
-.login{
-    width: 50%;
-    color: whitesmoke;
-    justify-content: center;
-    margin: auto;
-    margin-top: 15%;
+.dropDown{
+    color: white;
+    position: relative;
+    display: inline-flex;
+}
+.dropDown img{
+    width: 60px;
+}
+.dropDownContent{
+    display: none;
     position: absolute;
-}
-.logo img{
-    position: absolute;
-    top: 20vh;
-    left: 50vw;
-    width: 30%;
-    margin: auto;
-    pointer-events: none;
-}
-.login h2{
-    font-size: 25px;
+    min-width: 100px;
+    z-index: 1;
     text-align: center;
-    padding: 10px;
 }
-.login form{
+.dropDownContent a{
+    text-decoration: none;
+    color: black;
+    font-weight:bold;
+    display: block;
+}
+.dropDownContent a:hover{
+    background-color: rgba(228, 218, 218, 0.5);
+    border-radius: 5px;
+}
+.dropDown:hover .dropDownContent{
+    margin: 50px 0px 0px 10px;
+    display: block;
+    background-color: rgba(228, 218, 218, 0.5);
+    border-radius: 5px;
+    box-shadow: 10px 7px 15px black;
+}
+main .create{ 
+    display: absolute;
+    width: 200px; 
+    background-color: rgba(228, 218, 218, 0.5);
+    border-radius: 5px;
+    margin-top: 10%;
+    margin-left: 43%;
     text-align: center;
+    box-shadow: 10px 7px 15px black; 
+}
+.create form input {
     padding: 15px;
 }
-.login label{
-    font-size: 15px;
-    padding: 5px;
+.create form{
+    text-align: center;
 }
-.login .login_button{
+.create form:hover {
+    background-color: rgba(228, 218, 218, 0.5);
     border-radius: 5px;
-    background: none;
-    color: whitesmoke;
-    padding: 5px 10px;
-    margin-bottom: 10px;
-}
-.login span{
-    display: flex;
-    justify-content:center;
-    color: yellow;
-}
-select, input, textarea, option{
-    width: 185px;
-    height: 28px;
-    border-radius: 5px;
-    color: #000000;
-}
-textarea:focus, input:focus {
-    color: #000000;
-}
-.inputdiv{
-    margin: 10px;
-}
-input.create{
-    font-size: 15px;
-    color: yellow;
-    cursor: pointer;
-}
-input.create:active{
-    color: whitesmoke;
-}
-#student_id, #password{
-    color: #000000;
-    padding: 2px 4px;
-}
-table{
-    visibility: visible;
-    position: absolute;
-    top: 11vh;
-    left: 21vw;
-}
- 
-tr:first-child th:first-child { border-top-left-radius: 10px; }
-tr:first-child th:last-child { border-top-right-radius: 10px; }
-
-tr:last-child td:first-child { border-bottom-left-radius: 10px; }
-tr:last-child td:last-child { border-bottom-right-radius: 10px; }
-.seperator{
-    width: 50%;
-    color: whitesmoke;
-    justify-content: center;
-    margin: auto;
-    position: absolute;
-    top: 200px;
-    left: 5vw;
-}
-.seperator select{
-    color: black;
-    padding-left: 35px; 
-    text-align: left;
-}
-.con{
-    padding-top: 100px;
-    margin: auto;
-    position: relative;
-    display: flex;
-    color: whitesmoke;
-}
-@media screen and (min-width: 600px) {
-    .logo img{
-        top: 20vh;
-        left: 50vw;
-        width: 30%;
-    }
-    .login{
-        top: 10vh;
-        left: 10vw;
-        width: 50%;
-    }
-  }
-  
-@media screen and (max-width: 1000px) {
-    .logo img{
-        top: 15%;
-        left: 35%;
-        width: 30%;
-    }
-    .login{
-        top: 30%;
-        left: 25%;
-        width: 50%;
-    }
 }

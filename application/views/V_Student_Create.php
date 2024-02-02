@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="lib/bootstrap-4-navbar/4.3.1/css/bootstrap-4-navbar.min.css">
     <link rel="stylesheet" href="lib/handsontable/7.1.0/css/handsontable.full.min.css">
     <link rel="stylesheet" href="css\V_Student_Create.css?<?= filemtime('css\V_Student_Create.css'); ?>">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com"></script> 
 </script>
 </head>
 <body>
@@ -45,19 +45,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <form action=/C_Student_Management/studentCreate method="post" target="_self">
         <div class="inputdiv">
         <label for="student_id">Student:</label><br>
-        <select class="text-gray-800" id="student_id" name="student_id">
-            <option value="" hidden>-</option>
-            <?php foreach ($student_list as $option) : ?>
+        <select class="text-gray-800" id="student_id" name="student_id" >
+            <option value="" hidden></option>
+            <?php foreach ($student_list as $option) : ?> 
               <option value="<?= $option['student_id'] ?>">
                 <?= $option['student_number'] . ' - ' . $option['first_name'] . ' ' . $option['last_name'] ?>
             </option>
             <?php endforeach; ?>
         </select><br>
-        </div>
-        <div class="inputdiv">
+        </div> 
+        <div class="pass">
         <label for="password">Password</label><br>
-        <input type="password" id="password" name="password" value="" maxlength="12" require><br><br>
-
+        <input type="password" id="password" name="password" value="123" maxlength="16"><br><br>
+        </div>
         <input class="hover:bg-blue-200 hover:text-gray-900" type="submit" value="Create">
         </form>
   </div>

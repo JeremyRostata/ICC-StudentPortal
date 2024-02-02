@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="hidden sm:ml-6 sm:block">
               <a class="flex space-x-4">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <h1 class="text-gray-100 mt-5"><span> <?= $student_info['course_name'] ?></span></h1>  
+                <h1 class="text-gray-100 mt-5"><span> <?= $student_info['course_name'] ?> | FIRST YEAR</span></h1>  
               
             </div>
           </div>
@@ -91,16 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-    <div class="seperator">
-      <label for="year_level">Select Year Level: </label>
-        <select id="year_level" require>
-          <option value="" selected disabled hidden>Please select</option>
-          <option value="1">First Year</option>
-          <option value="2">Second Year</option>
-          <option value="3">Third Year</option>
-          <option value="4">Fourth Year</option> 
-        </select>
-    </div>
+    
 
 
     
@@ -114,92 +105,107 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
     
-        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
         <div class="overflow-auto rounded-lg shadow mt-40">
 
         <table class="w-full">
-        <caption>FIRST SEM</caption>
-            <thead class="bg-gray-200 border-b-2 border-gray-200 ">
-            
-                <tr>
-                
-                <th class="w-64 p-3 text-sm font-semibold tracking-wide text-left">Subject Code</th>
-                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Subject Name</th>
-                
-                
-
-                
-                </tr>
-            </thead>
-    </div>
-            <tbody class="divide-y divide-gray-100">
-            <?php foreach ($sem1 as $row): ?>
-              
-                  <tr class="bg-gray-300">
         
-                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_name'] ?></td>
-                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_code'] ?></td>
-                  
-                  </tr>
-                
-                <?php endforeach; ?>
-            </tbody>
-
-
-            
-            </table>
-        </div>
-        </div>
-        </div>
-
-
-
-
-        <div class="tb">
-        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div class="relative flex h-16 items-center justify-between">
-        <div class="overflow-auto rounded-lg shadow mt-40">
-        <table class="w-full">
-            <caption>SECOND SEM</caption>
             <thead class="bg-gray-200 border-b-2 border-gray-200 ">
                 <tr>
-                <th class="w-64 p-3 text-sm font-semibold tracking-wide text-left">Subject Code</th>
-                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left">Subject Name</th>
-                
-                
+                <th class="w-64 p-3 text-sm font-semibold tracking-wide text-left"><pre>Subject Code</th>
 
+                <th class="w-64 p-3 text-sm font-semibold tracking-wide text-left"><pre>Subject Name</th>
+
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Teacher</th>
+
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Preliminary Grade</th> 
+
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Midterm Grade</th>
+
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Finals Grade</th>
                 
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Grade</th>
+
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Remarks</th>
                 </tr>
             </thead>
-    </div>
-
 
             <tbody class="divide-y divide-gray-100">
-            <?php foreach ($sem2 as $row): ?>
-              
-                  <tr class="bg-gray-300">
-        
-                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_name'] ?></td>
-                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_code'] ?></td>
+                <?php foreach ($sem1 as $row): ?>
                   
+                  <tr class="bg-gray-300">
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_code'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_name'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['employee_name'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['prelim_grade'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['midterm_grade'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['final_grade'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['grade'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['grade_remarks_name'] ?></td>
                   </tr>
-                
+
                 <?php endforeach; ?>
             </tbody>
-            </table>
+            
+<!----------------------------------------------------Second Sem --------------------------------------------------------------->
 
-            </div>
+
+<thead class="bg-gray-200 border-b-2 border-gray-200 ">
+                <tr>
+                <th class="w-64 p-3 text-sm font-semibold tracking-wide text-left"><pre>Subject Code</th>
+
+                <th class="w-64 p-3 text-sm font-semibold tracking-wide text-left"><pre>Subject Name</th>
+
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Teacher</th>
+
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Preliminary Grade</th> 
+
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Midterm Grade</th>
+
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Finals Grade</th>
+                
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Grade</th>
+
+                <th class="w-32 p-3 text-sm font-semibold tracking-wide text-left"><pre>Remarks</th>
+                </tr>
+            </thead>
+
+            <tbody class="divide-y divide-gray-100">
+                <?php foreach ($sem2 as $row): ?>
+                  
+                  <tr class="bg-gray-300">
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_code'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_name'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['employee_name'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['prelim_grade'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['midterm_grade'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['final_grade'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['grade'] ?></td>
+                    <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['grade_remarks_name'] ?></td>
+                  </tr>
+
+                <?php endforeach; ?>
+            </tbody>
+            </section>
+          
+        </table>
         </div>
         </div>
-  </div>
-
+        </div>
         
 
 
 
-        
-
+        <a href="http://localhost/C_Student_subject">DASHBOARD ></a>
+  <br>
+  <a href="http://localhost/C_Student_fyear">FIRST YEAR ></a>
+  <br>
+  <a href="http://localhost/C_Student_syear">SECOND YEAR ></a>
+  <br>
+  <a href="http://localhost/C_Student_tyear">THIRD YEAR ></a>
+  <br>
+  <a href="http://localhost/C_Student_ftyear">FOURTH YEAR ></a>
 <!-- -------------------------------------------------------------------------------------JS FOR NAV BAR------------------------------------------------------------------------------------------------------------------------ -->
         <script>
       function toggleProfileDropdown() {

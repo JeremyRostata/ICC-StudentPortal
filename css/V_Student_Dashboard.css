@@ -98,12 +98,12 @@ input.create:active{
     padding: 2px 4px;
 }
 
-table{
+table{ 
     visibility: visible;
     position: absolute;
     top: 30px;
-    left: 25vw;
-}
+    left: -25vw;
+} 
 .two{
     visibility: visible;
     position: absolute;
@@ -115,20 +115,7 @@ tr:first-child th:last-child { border-top-right-radius: 10px; }
 
 tr:last-child td:first-child { border-bottom-left-radius: 10px; }
 tr:last-child td:last-child { border-bottom-right-radius: 10px; }
-.seperator{
-    width: 50%;
-    color: whitesmoke;
-    justify-content: center;
-    margin: auto;
-    position: absolute;
-    top: 200px;
-    left: 5vw;
-}
-.seperator select{
-    color: black;
-    padding-left: 35px; 
-    text-align: left;
-}
+
 @media screen and (min-width: 600px) {
     .logo img{
         top: 20vh;
