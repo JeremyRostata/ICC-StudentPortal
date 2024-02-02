@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <button type="button" onclick="toggleProfileDropdown()" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                   <span class="absolute -inset-1.5"></span>
                   <span class="sr-only">Open user menu</span>
-                  <img src="<?php echo base_url();?>images/pp.png" alt="" style="width: 55px;">
+                  <img src="<?php echo base_url();?>images/<?= $registrar_info['profile_name'] == "" ? 'profile.png' : $registrar_info['profile_name'] ?>" alt="profile" style="width: 53px; height: 53px; border-radius: 20px;">   
                 </button>
               </div>
               <div id="myProfileDropdown" class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
@@ -70,21 +70,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-
-
-<main>
-<form method="post" action="<?php echo base_url('C_Student_result/search'); ?>">
-    <label for="searchName">Enter Name:</label>
-    <input type="text" name="searchName" id="searchName">
-    <input type="submit" value="Search">
-</form>
-<section>
 <?php if (!empty($results)): ?>
 <main class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mb-20">
         <div class="relative flex items-center justify-between">
         <div class=" rounded-lg shadow mt-20">
 
-        <form class="bg-gray-800 p-2" method="post" action="<?php echo base_url('C_Student_subject'); ?>">
+        <form class="bg-gray-800 p-2" method="post" action="<?php echo base_url('C_Registrar_result/search'); ?>">
     <label class="pr-12 text-gray-200" for="searchName">Enter Name:</label>
     <input class="text-center" type="text" name="searchName" id="searchName">
     <input class="ml-12 text-gray-200 hover:bg-blue-200 hover:text-gray-800" type="submit" value="Search">

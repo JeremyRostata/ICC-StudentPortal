@@ -10,6 +10,7 @@ class M_Registrar_result extends CI_Model{
     public function fetchRegistrarInfo($employee_id){
         $this->db->select('first_name');
         $this->db->select('last_name');
+        $this->db->select('profile_name');
         $this->db->from('employee');
         $this->db->where('employee_id', $employee_id);
         return $this->db->get()->result_array()[0];

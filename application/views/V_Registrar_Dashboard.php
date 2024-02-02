@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="<?= base_url(); ?>">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- <link rel="stylesheet" href="css/Employee_D.css?<?= filemtime('css/V_Registrar_Dashboard.css'); ?>"> -->
+    <link rel="stylesheet" href="css/V_MIS_Profile.css?<?= filemtime('css/V_MIS_Profile.css'); ?>">
 </head>
 <body class="bg-gradient-to-r from-blue-400 to-blue-700">
  <!-- -----------------------------------------------------------------------------NAVIGATION BAR SECTION-------------------------------------------------------------------------------------------------------------------------------- -->
@@ -24,14 +24,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="hidden sm:ml-6 sm:block">
               <a class="flex space-x-4">
                 <h1 class="text-gray-100 mt-5">IMMACULADA CONCEPCION COLLEGE &nbsp;&nbsp; 
-                | <span><?= $role_list['access_role_name'].' | '.$registrar_info['last_name']?></span></h1>    
+                | <span><?= $registrar_info['access_role_name']. ' | '.$registrar_info['last_name']?></span></h1>    
             </div>
           </div>
 
         
               <div class="dropDown">
                 <button class="dropbtn">
-                <img src="<?php echo base_url();?>images/<?= $registrar_info['profile_name']?>" alt="profile" style="width: 53px; height: 53px; border-radius: 20px;">   
+                <img src="<?php echo base_url();?>images/<?= $registrar_info['profile_name'] == "" ? 'profile.png' : $registrar_info['profile_name'] ?>" alt="profile" style="width: 53px; height: 53px; border-radius: 20px;">   
                 </button>
                 <div class="dropDownContent">
                   <a href="/C_Registrar_Profile">Profile</a>

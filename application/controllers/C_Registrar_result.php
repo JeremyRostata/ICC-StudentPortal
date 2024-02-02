@@ -72,12 +72,16 @@ class C_Registrar_result extends CI_Controller {
 
     public function search() {
         $searchName = $this->input->post('searchName');
+        $employee_id = $this->session->userdata('employee_id');
 
         // SQL query to search for the name in the database
         $query = $this->db->query("SELECT * FROM students WHERE first_name LIKE '%$searchName%'");
+        
+        $registrar_info = $this->M_Registrar_result->fetchRegistrarInfo($employee_id);
 
         // Pass the result to the view
         $data['results'] = $query->result_array();
+        $data['registrar_info'] = $registrar_info;
 
         $this->load->view('V_Registrar_result', $data);
     }
