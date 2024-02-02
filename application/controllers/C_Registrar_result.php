@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class C_Registrar_Dashboard extends CI_Controller {
+class C_Registrar_result extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
@@ -10,20 +10,20 @@ class C_Registrar_Dashboard extends CI_Controller {
             redirect('C_Employee_Login');
         }
         $this->load->library('excel');
-        $this->load->model('M_Registrar_Dashboard');
+        $this->load->model('M_Registrar_result');
 
     }
 
     public function index(){
         
         $employee_id = $this->session->userdata('employee_id');
-        $registrar_info = $this->M_Registrar_Dashboard->fetchRegistrarInfo($employee_id);
-        $student_info = $this->M_Registrar_Dashboard->fetchStudentInfo($employee_id);
+        $registrar_info = $this->M_Registrar_result->fetchRegistrarInfo($employee_id);
+        $student_info = $this->M_Registrar_result->fetchStudentInfo($employee_id);
         $data = array( 
             'registrar_info' => $registrar_info,
             'student_info' => $student_info
         );
-		$this->load->view('V_Registrar_Dashboard', $data);
+		$this->load->view('V_Registrar_students', $data);
     }
 
     public function studentUpload(){
@@ -68,4 +68,20 @@ class C_Registrar_Dashboard extends CI_Controller {
         $this->session->unset_userdata('employee_id');
         redirect($_SERVER['REQUEST_URI'], 'refresh'); 
     }
+
+
+    public function search() {
+        $searchName = $this->input->post('searchName');
+
+        // SQL query to search for the name in the database
+        $query = $this->db->query("SELECT * FROM students WHERE first_name LIKE '%$searchName%'");
+
+        // Pass the result to the view
+        $data['results'] = $query->result_array();
+
+        $this->load->view('V_Registrar_result', $data);
+    }
+
+
+
 }

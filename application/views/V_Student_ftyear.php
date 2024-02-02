@@ -199,7 +199,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <a href="http://localhost/C_Student_subject">DASHBOARD ></a>
   <br>
-  <a href="http://localhost/C_Student_fyear">FIRST YEAR ></a>
+  <a href="C_Student_fyear">FIRST YEAR ></a>
   <br>
   <a href="http://localhost/C_Student_syear">SECOND YEAR ></a>
   <br>

@@ -16,6 +16,12 @@ body{
     height: 100%;
     overflow: hidden;
 }
+table{
+    visibility: visible;
+    position: absolute;
+    top: 60px;
+    left: -30vw;
+}
 nav{
     box-shadow: 10px 7px 15px black;
 }
