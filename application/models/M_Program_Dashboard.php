@@ -193,22 +193,23 @@ class M_Program_Dashboard extends CI_Model{
         $this->db->delete('students_schedule');
     }
     
+    public function deleteStudentSchedule($schedule_id){        
+        $this->db->where('schedule_id', $schedule_id);
+        $this->db->delete('students_schedule');
+    }
+    
     public function deleteSection($section_id){
         $this->db->where('section_id', $section_id);
         $this->db->delete('section');
 
         
-        $this->db->set('section_id', 'NULL');
+        $this->db->set('section_id', 'NULL', false);
         $this->db->where('section_id', $section_id);
         $this->db->update('students');
     }
     
-    public function deleteStudentSchedule($schedule_id){
-        $this->db->where('schedule_id', $schedule_id);
-        $this->db->delete('students_schedule');
-
-        
-        $this->db->where('schedule_id', $schedule_id);
+    public function deleteStudentScheduleSingle($student_schedule_id){
+        $this->db->where('student_schedule_id', $student_schedule_id);
         $this->db->delete('students_schedule');
     }
     

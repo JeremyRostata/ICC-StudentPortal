@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="<?= base_url(); ?>">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="css/Employee_D.css?<?= filemtime('css/Employee_D.css'); ?>">
+    <link rel="stylesheet" href="css/Program.css?<?= filemtime('css/Program.css'); ?>">
 </head>
 <body>
 
@@ -79,17 +79,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
-                      
-<div class="">
+                     
 
 <input type="text" name="" value="<?= $schedule_info['teacher_name'] ?>" disabled>
 <input type="text" name="" value="<?= $schedule_info['subject_name'] ?>" disabled>
 
-            <table>
+            <table class="table-sm">
 
         <thead class="bg-gray-200 border-b-2 border-gray-200 ">
             <tr>
-            <th class="w-64 p-3 text-sm font-semibold tracking-wide text-center"><pre>    Student Number</pre></th>
+            <th class="w-64 p-3 text-sm font-semibold tracking-wide text-center"><pre>Student Number</pre></th>
             <th class="w-64 p-3 text-sm font-semibold tracking-wide text-center">Student Name</th>
             <th class="w-64 p-3 text-sm font-semibold tracking-wide text-center">Year Level</th>
             <th class="w-64 p-3 text-sm font-semibold tracking-wide text-center">Section Name</th>
@@ -99,6 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <th class="w-64 p-3 text-sm font-semibold tracking-wide text-center">Finals Grade</th>
             <th class="w-64 p-3 text-sm font-semibold tracking-wide text-center">Grade</th>
             <th class="w-64 p-3 text-sm font-semibold tracking-wide text-center">Remarks</th>
+            <th class="w-64 p-3 text-sm font-semibold tracking-wide text-center"></th>
             </tr>
         </thead>
 
@@ -131,13 +131,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php endforeach; ?>
                     </select>
                 </td>
+                <td class="p-3 text-sm whitespace-nowrap class">
+                    <a href="/C_Program_Dashboard/deleteStudentSchedule/?student_schedule_id=<?= $row['student_schedule_id'] ?>&schedule_id=<?= $schedule_id ?>"><span class="p-1.5 text-xs font-medium uppercase tracking wider text-blue-800 rounded-lg hover:font-bold"><pre>Delete</pre></span></a>
+                </td>
             </tr>
             
             <?php endforeach; ?>
             
         </tbody>
     </table>
-            </div>
 
             
     <form action=/C_Program_Dashboard/addSection method="post" target="_self">

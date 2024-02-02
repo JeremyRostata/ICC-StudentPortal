@@ -195,6 +195,16 @@ class C_Program_Dashboard extends CI_Controller {
         redirect("/C_Program_Dashboard/sectionList");
     }
     
+    public function deleteStudentSchedule(){
+        
+        $student_schedule_id = $this->input->get('student_schedule_id');
+        $schedule_id = $this->input->get('schedule_id');
+      
+        $this->M_Program_Dashboard->deleteStudentScheduleSingle($student_schedule_id);
+
+        redirect("/C_Program_Dashboard/schedule/?schedule_id=$schedule_id");
+    }
+    
     public function addSection(){
 
         $schedule_id = $this->input->post('schedule_id');
