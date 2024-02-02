@@ -80,43 +80,66 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 
                       
-<div class="overflow-auto rounded-lg shadow mt-20">
-    <table>
-        <thead class="bg-gray-200 border-b-2 border-gray-200 ">
-                <tr>
-                <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre>Teacher Assigned</pre></th>
-                <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre>Subject</pre></th>
-                <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre>Schedule</pre></th>
-                <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre>Room</pre></th>
-                <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre>Section</pre></th>
-                <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre></pre></th>
-                </tr>
-            </thead>
+<div class="">
 
-         <tbody class="divide-y divide-gray-100">
-            <?php foreach ($teacher_schedule as $row): ?>
-            <tr class="bg-gray-300">
-                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['employee_name'] ?></td>
-                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['subject_name'] ?></td>
-                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['schedule_remarks'] ?></td>
-                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['room_remarks'] ?></td>
+
+            <table>
+
+        <thead class="bg-gray-200 border-b-2 border-gray-200 ">
+            <tr>
+            <th class="w-64 p-3 text-sm font-semibold tracking-wide text-center"><pre>    Student Number</pre></th>
+            <th class="w-64 p-3 text-sm font-semibold tracking-wide text-center">Student Name</th>
+            <th class="w-64 p-3 text-sm font-semibold tracking-wide text-center">Year Level</th>
+            <th class="w-64 p-3 text-sm font-semibold tracking-wide text-center">Section Name</th>
+            <th class="w-64 p-3 text-sm font-semibold tracking-wide text-center">Status</th>
+            <th class="w-64 p-3 text-sm font-semibold tracking-wide text-center">Preliminary Grade</th>
+            <th class="w-64 p-3 text-sm font-semibold tracking-wide text-center">Midterm Grade</th>
+            <th class="w-64 p-3 text-sm font-semibold tracking-wide text-center">Finals Grade</th>
+            <th class="w-64 p-3 text-sm font-semibold tracking-wide text-center">Grade</th>
+            <th class="w-64 p-3 text-sm font-semibold tracking-wide text-center">Remarks</th>
+            </tr>
+        </thead>
+
+
+        <tbody class="divide-y divide-gray-100">
+            <?php foreach ($teacher_student_schedule_list as $row): ?>
+              
+              
+            <tr>
+
+                <input type="hidden" name=student_schedule_id[] value="<?= $row['student_schedule_id'] ?>">
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre>      <?= $row['student_number'] ?></pre></td>
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['student_name'] ?></td>
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['year_level'] == 1 ? '1st Year' : ($row['year_level'] == 2 ? '2nd Year' : ($row['year_level'] == 3 ? '3rd Year' : '4th Year')) ?>
+                </td>
                 <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['section_name'] ?></td>
-                <td class="p-3 text-sm whitespace-nowrap class">
-                    <a href="/C_Program_Dashboard/schedule/?schedule_id=<?= $row['schedule_id'] ?>"><span class="p-1.5 text-xs font-medium uppercase tracking wider text-blue-800 rounded-lg hover:font-bold"><pre>Edit</pre></span></a>
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"></td>
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="prelim_grade[]" value="<?= $row['prelim_grade'] ?>">
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="midterm_grade[]" value="<?= $row['midterm_grade'] ?>">
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="final_grade[]" value="<?= $row['final_grade'] ?>">
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="grade[]" value="<?= $row['grade'] ?>">
+                  
+
+
+
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200">
+                    <select class="opt" name="grade_remarks_id[]" value="<?= $row['grade_remarks_id'] ?>"> 
+                        <option value="" hidden>-</option>
+                        <?php foreach ($grade_remarks_list as $option) : ?>
+                        <option value="<?= $option['grade_remarks_id'] ?>">
+                        <?= $row['grade_remarks_id'] == $option['grade_remarks_id'] ? '' : ''?>
+                        <?= $option['grade_remarks_id'] . ' - ' . $option['grade_remarks_name'] ?>
+                        </option>
+                        <?php endforeach; ?>
+                    </select>
                 </td>
             </tr>
+            
             <?php endforeach; ?>
+            
         </tbody>
     </table>
-    </div>
-
-
-
-    <form action=/C_Program_Dashboard/createSchedule method="post" target="_self">
-      <input class="hover:bg-blue-200 hover:text-gray-800" type="submit" value="Create Schedule">    
-    </form>
- 
-
+            </div>
 
 
 

@@ -36,10 +36,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                 <h1 class="text-gray-100 mt-5">     <span> <?= $teacher_schedule_info['course_name'] ?></span></h1> 
             </div>
+            
+          <div class="ml-5 mt-5">
+            <a  href="http://localhost/C_Program_Dashboard/index">Section</a>
           </div>
-
-          <div class="redirect">
-            <a  href="http://localhost/C_Program_Dashboard/index">Student List ></a>
+          <div class="ml-5 mt-5">
+            <a  href="http://localhost/C_Program_Dashboard/scheduleList">Schedule</a>
+          </div>
           </div>
 
           <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -110,6 +113,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </form>
 </div>
  
+<form action=/C_Program_Dashboard/sectionList method="post" target="_self">
+      <input class="hover:bg-blue-200 hover:text-gray-800" type="submit" value="Back">    
+    </form>
     
 
 

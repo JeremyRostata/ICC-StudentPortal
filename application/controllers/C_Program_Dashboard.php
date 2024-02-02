@@ -64,7 +64,38 @@ class C_Program_Dashboard extends CI_Controller {
 		$this->load->view('V_Program_ScheduleList', $data);
     }
 
-    
+    public function createSchedule(){
+        
+        $employee_id = $this->session->userdata('employee_id');
+        $teacher_schedule_info = $this->M_Program_Dashboard->fetchTeacherInfo($employee_id);
+        $teacher_list = $this->M_Program_Dashboard->fetchTeacherList();
+        $subject_list = $this->M_Program_Dashboard->fetchSubjectList($teacher_schedule_info['course_id']);
+
+        $data = array( 
+            'teacher_schedule_info' => $teacher_schedule_info,
+            'teacher_list' => $teacher_list,
+            'subject_list' => $subject_list
+        );
+
+		$this->load->view('V_Program_CreateSchedule', $data);
+    }
+
+    public function schedule(){
+        
+        $employee_id = $this->session->userdata('employee_id');
+        $schedule_id = $this->input->get('schedule_id');
+        $teacher_schedule_info = $this->M_Program_Dashboard->fetchTeacherInfo($employee_id);
+        $teacher_student_schedule_list = $this->M_Program_Dashboard->fetchStudentScheduleList($schedule_id);
+
+        $data = array( 
+            'teacher_schedule_info' => $teacher_schedule_info,
+            'teacher_student_schedule_list' => $teacher_student_schedule_list
+            
+        );
+
+		$this->load->view('V_Program_Schedule', $data);
+    }
+
     public function uploadStudentSection(){
 
         $section_id = $this->input->post('section_id');
@@ -100,6 +131,18 @@ class C_Program_Dashboard extends CI_Controller {
     
     }
 
+    public function createTeacherSchedule(){
+
+        $employee_id = $this->input->post('teacher');
+        $subject_id = $this->input->post('subject');
+        $schedule_remarks = $this->input->post('schedule');
+        $room_remarks = $this->input->post('room');
+        
+        $this->M_Program_Dashboard->createTeacherSchedule($employee_id, $subject_id, $schedule_remarks, $room_remarks);
+
+        redirect("/C_Program_Dashboard/scheduleList");
+    
+    }
     public function logout(){
         $this->session->unset_userdata('employee_id');
         redirect($_SERVER['REQUEST_URI'], 'refresh'); 

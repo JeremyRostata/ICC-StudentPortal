@@ -35,12 +35,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <a class="flex space-x-4">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                 <h1 class="text-gray-100 mt-5">     <span> <?= $teacher_schedule_info['course_name'] ?></span></h1> 
+                
             </div>
+            
+          <div class="ml-5 mt-5">
+            <a  href="http://localhost/C_Program_Dashboard/index">Section</a>
+          </div>
+          <div class="ml-5 mt-5">
+            <a  href="http://localhost/C_Program_Dashboard/scheduleList">Schedule</a>
+          </div>
           </div>
 
-          <div class="redirect">
-            <a  href="http://localhost/C_Program_Dashboard/index">Student List ></a>
-          </div>
 
 
 
