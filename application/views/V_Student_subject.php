@@ -314,30 +314,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         </main>
        
-      
-        
-
-        
-
-
-
-
-
-
-
-        
-        <a href="http://localhost/C_Student_Dashboard">DASHBOARD ></a>
-        <br>
-  <a href="http://localhost/C_Student_subject">CHECKLIST ></a>
-        <br>
-  <a href="http://localhost/C_Student_fyear">FIRST YEAR ></a>
-  <br>
-  <a href="http://localhost/C_Student_syear">SECOND YEAR ></a>
-  <br>
-  <a href="http://localhost/C_Student_tyear">THIRD YEAR ></a>
-  <br>
-  <a href="http://localhost/C_Student_ftyear">FOURTH YEAR ></a>
-        
 
 <!-- -------------------------------------------------------------------------------------JS FOR NAV BAR------------------------------------------------------------------------------------------------------------------------ -->
         <script>
