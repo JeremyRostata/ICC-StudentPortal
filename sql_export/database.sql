@@ -3,11 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<<< HEAD:sql_export/icc_student_portal (3).sql
--- Generation Time: Feb 01, 2024 at 04:54 PM
-========
--- Generation Time: Feb 01, 2024 at 05:00 PM
->>>>>>>> 27153d44fdf0ac90577b4ab43ad6ff90250bbaa7:sql_export/icc_student_portal 02022024.sql
+-- Generation Time: Feb 02, 2024 at 04:49 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -200,7 +196,6 @@ CREATE TABLE `employee` (
   `first_name` varchar(60) NOT NULL,
   `middle_name` varchar(60) NOT NULL,
   `last_name` varchar(60) NOT NULL,
-  `role` varchar(30) NOT NULL,
   `course_id` int(11) NOT NULL,
   `profile_name` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -209,14 +204,14 @@ CREATE TABLE `employee` (
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`employee_id`, `employee_number`, `first_name`, `middle_name`, `last_name`, `role`, `course_id`, `profile_name`) VALUES
-(1, '9999-9999', 'John', 'Doe', 'Doe', '', 0, ''),
-(2, '9998-0000', 'Mark', 'Red', 'Blue', '', 0, ''),
-(3, '0010-0000', 'Tan', 'Pogi', 'Pariente', 'MIS-HEAD', 0, '3.png'),
-(4, '0020-0000', 'Program', 'M', 'Head', '', 0, ''),
-(5, '0030-0000', 'Program', 'Head', 'BSIT', '', 1, ''),
-(6, '0040-0000', 'Registrar', '', 'Registrar', '', 0, ''),
-(7, '0050-0000', 'Eleziel', '', 'Cantimbuhan', '', 0, '');
+INSERT INTO `employee` (`employee_id`, `employee_number`, `first_name`, `middle_name`, `last_name`, `course_id`, `profile_name`) VALUES
+(1, '9999-9999', 'John', 'Doe', 'Doe', 0, ''),
+(2, '9998-0000', 'Mark', 'Red', 'Blue', 0, ''),
+(3, '0010-0000', 'Tan', 'Pogi', 'Pariente', 0, '3.png'),
+(4, '0020-0000', 'Program', 'M', 'Head', 0, ''),
+(5, '0030-0000', 'Program', 'Head', 'BSIT', 2, ''),
+(6, '0040-0000', 'Registrar', '', 'Registrar', 0, ''),
+(7, '0050-0000', 'Eleziel', '', 'Cantimbuhan', 0, '');
 
 -- --------------------------------------------------------
 
@@ -657,88 +652,10 @@ ALTER TABLE `subject`
 --
 
 --
--- AUTO_INCREMENT for table `access_role`
---
-ALTER TABLE `access_role`
-  MODIFY `access_role_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `course`
---
-ALTER TABLE `course`
-  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `curriculum`
---
-ALTER TABLE `curriculum`
-  MODIFY `curriculum_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
-
---
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
   MODIFY `employee_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `employee_user`
---
-ALTER TABLE `employee_user`
-  MODIFY `employee_user_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
--- AUTO_INCREMENT for table `grade_remarks`
---
-ALTER TABLE `grade_remarks`
-  MODIFY `grade_remarks_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `schedule`
---
-ALTER TABLE `schedule`
-  MODIFY `schedule_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `section`
---
-ALTER TABLE `section`
-  MODIFY `section_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `sem1`
---
-ALTER TABLE `sem1`
-  MODIFY `subject_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `sem2`
---
-ALTER TABLE `sem2`
-  MODIFY `subject_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `students`
---
-ALTER TABLE `students`
-  MODIFY `student_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-
---
--- AUTO_INCREMENT for table `students_schedule`
---
-ALTER TABLE `students_schedule`
-  MODIFY `student_schedule_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `student_user`
---
-ALTER TABLE `student_user`
-  MODIFY `student_user_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `subject`
---
-ALTER TABLE `subject`
-  MODIFY `subject_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=331;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
