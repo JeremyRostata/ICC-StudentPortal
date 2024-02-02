@@ -67,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 <main>
-<form method="post" action="<?php echo base_url('C_Student_subject'); ?>">
+<form method="post" action="<?php echo base_url('C_Student_result/search'); ?>">
     <label for="searchName">Enter Name:</label>
     <input type="text" name="searchName" id="searchName">
     <input type="submit" value="Search">
