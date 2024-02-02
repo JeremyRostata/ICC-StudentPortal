@@ -9,8 +9,6 @@ html{
     height: 100%;
 }
 body{
-    /* background-image: linear-gradient(to right bottom, #4b17da, #18055b, 
-    #140551, #110448, #0f013f); */
     background-image: radial-gradient(circle, #005ce7, #0071f1, #0084f8,  
     #0096fc, #1fa8ff);
     background-repeat: no-repeat;
@@ -21,8 +19,6 @@ body{
 }
 header{
     color: whitesmoke;
-    /* background-image: linear-gradient(to right top, #1e0074, #180267,
-    #13035a, #10034d, #0e0041); */
     background-image: linear-gradient(to right, #0549af, #0057b6, #0064bb, #0071bf, #117dc2);
     box-shadow: 10px 7px 15px black;
     margin-bottom: 10px;
@@ -39,10 +35,8 @@ header h1{
     color: whitesmoke;
     justify-content: center;
     margin: auto;
-    margin-top: 15%;
+    margin-top: 13%;
     position: absolute; 
-    /* background-color: rgba(0,0,0, 0.4); 
-    box-shadow: 10px 7px 15px black; */
     border-radius: 10px;
 }
 .logo img{
@@ -142,6 +136,9 @@ input.create{
 }
 .back:hover{
     background-color: rgba(0,0,0, 0.1);
+}
+.pass{
+    display: none;
 }
 @media screen and (min-width: 600px) {
     .logo img{
