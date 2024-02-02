@@ -101,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
 </div>
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
- <h1 class="text-center mt-4 bg-gray-800 text-gray-200">First Year</h1>
+ <h1 class="text-center mt-4 bg-gray-800 text-gray-200  font-semibold text-xl ">First Year</h1>
         <section class="flex">
           <table class="w-full divide-x divide-gray-100 divide-y divide-gray-800">
         <caption class="bg-gray-200">FIRST SEM</caption>
@@ -156,7 +156,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </tbody>
             </table>
         </section>
-        <h1 class="text-center mt-4 bg-gray-800 text-gray-200">Second Year</h1>    
+        <h1 class="text-center mt-4 bg-gray-800 text-gray-200  font-semibold text-xl ">Second Year</h1>    
         <section class="flex">
           <table class="w-full divide-x divide-gray-100 divide-y divide-gray-800">
             <caption class="bg-gray-200">FIRST SEM</caption>
@@ -206,7 +206,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </tbody>
           </table>
         </section>
-        <h1 class="text-center mt-4 bg-gray-800 text-gray-200">Third Year</h1>
+        <h1 class="text-center mt-4 bg-gray-800 text-gray-200  font-semibold text-xl ">Third Year</h1>
         <section class="flex">
           <table class="w-full divide-x divide-gray-100 divide-y divide-gray-800">
           <caption class="bg-gray-200">FIRST SEM</caption>
@@ -256,7 +256,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </tbody>
           </table>
         </section>
-        <h1 class="text-center mt-4 bg-gray-800 text-gray-200">Fourth Year</h1> 
+        <h1 class="text-center mt-4 bg-gray-800 text-gray-200  font-semibold text-xl ">Fourth Year</h1> 
          <section class="flex">
           <table class="w-full divide-x divide-gray-100 divide-y divide-gray-800">
             <caption class="bg-gray-200">FIRST SEM</caption>

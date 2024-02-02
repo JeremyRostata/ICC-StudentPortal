@@ -108,7 +108,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </div>
 </div>
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
-<h1 class="text-center mt-4 bg-gray-800 text-gray-200">1st Semester</h1>        
+<h1 class="text-center mt-4 bg-gray-800 text-gray-200  font-semibold text-xl ">1st Semester</h1>        
 <section class="flex">        
         <table class="w-full">
         
@@ -150,7 +150,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </tbody>
         </table>
         </section>   
-        <h1 class="text-center mt-4 bg-gray-800 text-gray-200">2nd Semester</h1>
+        <h1 class="text-center mt-4 bg-gray-800 text-gray-200  font-semibold text-xl ">2nd Semester</h1>
         <section class="flex">
           <table class="w-full">
           <thead class="bg-gray-200 border-b-2 border-gray-200 ">
