@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <main>
                 <div class="logo">
-                <img src="images\icc logo.webp" alt="logo">  
+                <img src="images\icc logo.webp" alt="logo">   
             </div>
 
 <!-- asd -->
