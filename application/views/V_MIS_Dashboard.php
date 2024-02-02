@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
           </div>
 
-        
+        <!--  -->
               <div class="dropDown">
                 <button class="dropbtn">
                 <img src="<?php echo base_url();?>images/<?= $MIS_info['profile_name']?>" alt="profile" style="width: 53px; height: 53px; border-radius: 20px;">   
@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
               </div>
                 
-
+      <!--  -->
           </div>
         </div>
       </div>

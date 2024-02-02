@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <header>
         <h1>Immaculada Concepcion College</h1>
         <div class="redirect">
-            <a href="http://localhost/">Student Login ></a>
+            <a href="C_Student_Login">Student Login ></a>
         </div>
     </header>
 
