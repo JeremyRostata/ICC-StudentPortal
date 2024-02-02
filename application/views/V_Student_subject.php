@@ -96,14 +96,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <a href="http://localhost/C_Student_syear" class="text-gray-900 hover:bg-gray-800 hover:text-white block rounded-md px-3 py-2 text-base font-medium font-mono">SECOND YEAR</a>
           <a href="http://localhost/C_Student_tyear" class="text-gray-900 hover:bg-gray-800 hover:text-white block rounded-md px-3 py-2 text-base font-medium font-mono">THIRD YEAR</a>
           <a href="http://localhost/C_Student_ftyear" class="text-gray-900 hover:bg-gray-800 hover:text-white block rounded-md px-3 py-2 text-base font-medium font-mono">FOURTH YEAR</a>
-      <form method="POST" action="#" role="none">
-        <button type="submit" class="text-gray-700 block w-full px-4 py-2 text-left text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Sign out</button>
-      </form>
+      
     </div>
   </div>
 </div>
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
- <h1 class="text-center bg-gray-800 text-gray-200">First Year</h1>
+ <h1 class="text-center mt-4 bg-gray-800 text-gray-200">First Year</h1>
         <section class="flex">
           <table class="w-full divide-x divide-gray-100 divide-y divide-gray-800">
         <caption class="bg-gray-200">FIRST SEM</caption>
@@ -158,8 +156,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </tbody>
             </table>
         </section>
-        <h1 class="text-center mt-2 bg-gray-800 text-gray-200">Second Year</h1>    
-        <section class="flex mt-2">
+        <h1 class="text-center mt-4 bg-gray-800 text-gray-200">Second Year</h1>    
+        <section class="flex">
           <table class="w-full divide-x divide-gray-100 divide-y divide-gray-800">
             <caption class="bg-gray-200">FIRST SEM</caption>
           <thead class="bg-gray-200 border-b-2 border-gray-200 ">
@@ -208,8 +206,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </tbody>
           </table>
         </section>
-        <h1 class="text-center mt-2 bg-gray-800 text-gray-200">Third Year</h1>
-        <section class="flex mt-2">
+        <h1 class="text-center mt-4 bg-gray-800 text-gray-200">Third Year</h1>
+        <section class="flex">
           <table class="w-full divide-x divide-gray-100 divide-y divide-gray-800">
           <caption class="bg-gray-200">FIRST SEM</caption>
             <thead class="bg-gray-200 border-b-2 border-gray-200 ">
@@ -258,8 +256,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </tbody>
           </table>
         </section>
-        <h1 class="text-center mt-2 bg-gray-800 text-gray-200">Fourth Year</h1> 
-         <section class="flex mt-2">
+        <h1 class="text-center mt-4 bg-gray-800 text-gray-200">Fourth Year</h1> 
+         <section class="flex">
           <table class="w-full divide-x divide-gray-100 divide-y divide-gray-800">
             <caption class="bg-gray-200">FIRST SEM</caption>
             <thead class="bg-gray-200 border-b-2 border-gray-200 ">
