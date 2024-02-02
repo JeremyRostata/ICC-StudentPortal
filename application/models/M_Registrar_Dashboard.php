@@ -16,9 +16,7 @@ class M_Registrar_Dashboard extends CI_Model{
     public function fetchStudentInfo($employee_id){
         $this->db->select('students.first_name');
         $this->db->select('students.last_name');
-        $this->db->from('employee');
-        $this->db->join('students','employee.registrar_id = students.registrar_id','left');
-        $this->db->where('employee_id', $employee_id);
+        $this->db->from('students');
         return $this->db->get()->result_array()[0];
     }
 
