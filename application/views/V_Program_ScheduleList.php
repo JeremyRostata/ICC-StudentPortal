@@ -90,6 +90,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre>Room</pre></th>
                 <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre>Section</pre></th>
                 <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre></pre></th>
+                <th class="w-30 p-3 text-sm font-semibold tracking-wide text-left"><pre></pre></th>
                 </tr>
             </thead>
 
@@ -103,6 +104,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['section_name'] ?></td>
                 <td class="p-3 text-sm whitespace-nowrap class">
                     <a href="/C_Program_Dashboard/schedule/?schedule_id=<?= $row['schedule_id'] ?>"><span class="p-1.5 text-xs font-medium uppercase tracking wider text-blue-800 rounded-lg hover:font-bold"><pre>Edit</pre></span></a>
+                </td>
+                <td class="p-3 text-sm whitespace-nowrap class">
+                    <a href="/C_Program_Dashboard/deleteSchedule/?schedule_id=<?= $row['schedule_id'] ?>"><span class="p-1.5 text-xs font-medium uppercase tracking wider text-blue-800 rounded-lg hover:font-bold"><pre>Delete</pre></span></a>
                 </td>
             </tr>
             <?php endforeach; ?>

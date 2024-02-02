@@ -116,7 +116,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <label for="room">Room Remarks:</label><br>
         <input type="text" id="room" name="room">
         </div>
-        <br>
+
+        <div class="inputdiv">
+        <label for="year_level">Year Level: </label><br>
+        <select class="text-gray-800" id="year_level" name="year_level">
+            <option value="" hidden>-</option>
+            <option value="1">1st Year</option>
+            <option value="2">2nd Year</option>
+            <option value="3">3rd Year</option>
+            <option value="4">4th Year</option>
+        </select>
+        </div>
+
+        <div class="inputdiv">
+        <label for="year_level">Semester: </label><br>
+        <select class="text-gray-800" id="semester" name="semester">
+            <option value="" hidden>-</option>
+            <option value="1">1st Semester</option>
+            <option value="2">2nd Semester</option>
+        </select>
+        </div>
         
         <input class="hover:bg-blue-200 hover:text-gray-800" type="submit" value="Create">    
     </form>

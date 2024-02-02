@@ -85,11 +85,18 @@ class C_Program_Dashboard extends CI_Controller {
         $employee_id = $this->session->userdata('employee_id');
         $schedule_id = $this->input->get('schedule_id');
         $teacher_schedule_info = $this->M_Program_Dashboard->fetchTeacherInfo($employee_id);
+        $schedule_info = $this->M_Program_Dashboard->fetchScheduleInfo($schedule_id);
         $teacher_student_schedule_list = $this->M_Program_Dashboard->fetchStudentScheduleList($schedule_id);
+        $course_section = $this->M_Program_Dashboard->fetchCourseSection($employee_id);
+        $grade_remarks_list = $this->M_Program_Dashboard->fetchGradeRemarksList();
 
         $data = array( 
             'teacher_schedule_info' => $teacher_schedule_info,
-            'teacher_student_schedule_list' => $teacher_student_schedule_list
+            'teacher_student_schedule_list' => $teacher_student_schedule_list,
+            'course_section' => $course_section,
+            'schedule_info' => $schedule_info,
+            'grade_remarks_list' => $grade_remarks_list,
+            'schedule_id' => $schedule_id
             
         );
 
@@ -133,18 +140,62 @@ class C_Program_Dashboard extends CI_Controller {
 
     public function createTeacherSchedule(){
 
-        $employee_id = $this->input->post('teacher');
+        $teacher_id = $this->input->post('teacher');
         $subject_id = $this->input->post('subject');
         $schedule_remarks = $this->input->post('schedule');
         $room_remarks = $this->input->post('room');
+        $year_level = $this->input->post('year_level');
+        $semester = $this->input->post('semester');
+        $employee_id = $this->session->userdata('employee_id');
+        $teacher_schedule_info = $this->M_Program_Dashboard->fetchTeacherInfo($employee_id);
         
-        $this->M_Program_Dashboard->createTeacherSchedule($employee_id, $subject_id, $schedule_remarks, $room_remarks);
+        $this->M_Program_Dashboard->createTeacherSchedule($teacher_id, $subject_id, $schedule_remarks, $room_remarks, $teacher_schedule_info['course_id'], $year_level, $semester);
 
         redirect("/C_Program_Dashboard/scheduleList");
+    
+    }
+    
+    public function deleteSchedule(){
+        
+        $employee_id = $this->session->userdata('employee_id');
+        $schedule_id = $this->input->get('schedule_id');
+        $teacher_schedule_info = $this->M_Program_Dashboard->deleteSchedule($schedule_id);
+
+        redirect("/C_Program_Dashboard/scheduleList");
+    }
+
+    
+    public function addSection(){
+
+        $schedule_id = $this->input->post('schedule_id');
+        $section_id = $this->input->post('section_id');
+        
+        $schedule_info = $this->M_Program_Dashboard->fetchScheduleInfo($schedule_id);
+        
+        $this->M_Program_Dashboard->deleteStudentSchedule($schedule_id);
+
+        $this->M_Program_Dashboard->updateScheduleSection($schedule_id, $section_id);
+        $this->M_Program_Dashboard->createStudentScheduleBySection($schedule_id, $schedule_info['year_level'], $schedule_info['semester'], $section_id);
+
+        redirect("/C_Program_Dashboard/schedule/?schedule_id=$schedule_id");
+    
+    }
+    
+    public function addStudentSchedule(){
+
+        $schedule_id = $this->input->post('schedule_id');
+        $student_number = $this->input->post('student_number');
+        
+        $schedule_info = $this->M_Program_Dashboard->fetchScheduleInfo($schedule_id);
+
+        $this->M_Program_Dashboard->createStudentScheduleByStudent($schedule_id, $schedule_info['year_level'], $schedule_info['semester'], $student_number);
+
+        redirect("/C_Program_Dashboard/schedule/?schedule_id=$schedule_id");
     
     }
     public function logout(){
         $this->session->unset_userdata('employee_id');
         redirect($_SERVER['REQUEST_URI'], 'refresh'); 
     }
+    
 }

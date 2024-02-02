@@ -104,14 +104,17 @@ class M_Program_Dashboard extends CI_Model{
         return $this->db->get()->result_array();
     }
 
-    public function createTeacherSchedule($employee_id, $subject_id, $schedule_remarks, $room_remarks)
+    public function createTeacherSchedule($employee_id, $subject_id, $schedule_remarks, $room_remarks, $course_id, $year_level, $semester)
     {
         
         $data = array(
             'employee_id' => $employee_id,
             'subject_id' => $subject_id,
             'schedule_remarks' => $schedule_remarks,
-            'room_remarks' => $room_remarks
+            'room_remarks' => $room_remarks,
+            'course_id' => $course_id,
+            'year_level' => $year_level,
+            'semester' => $semester
 
         );
     
@@ -144,5 +147,98 @@ class M_Program_Dashboard extends CI_Model{
         $this->db->from('schedule');
         $this->db->where('schedule_id', $schedule_id);
         return $this->db->get()->result_array()[0]['section_id'];
+    }
+    
+    public function fetchScheduleInfo($schedule_id){
+        $this->db->select("CONCAT(employee.first_name, ' ', employee.last_name) as teacher_name");
+        $this->db->select('subject.subject_name');
+        $this->db->select('schedule.section_id');
+        $this->db->select('schedule.year_level');
+        $this->db->select('schedule.semester');
+        $this->db->from('schedule');
+        $this->db->join('employee','schedule.employee_id = employee.employee_id','left');
+        $this->db->join('subject','schedule.subject_id = subject.subject_id','left');
+        $this->db->where('schedule.schedule_id', $schedule_id);
+       
+        return $this->db->get()->result_array()[0];
+    }
+
+    public function fetchGradeRemarksList() {
+        $this->db->select('grade_remarks_id');
+        $this->db->select('grade_remarks_name');
+        $this->db->from('grade_remarks');
+        return $this->db->get()->result_array();
+    }
+
+    public function deleteSchedule($schedule_id){
+        $this->db->where('schedule_id', $schedule_id);
+        $this->db->delete('schedule');
+
+        
+        $this->db->where('schedule_id', $schedule_id);
+        $this->db->delete('students_schedule');
+    }
+    
+    public function deleteStudentSchedule($schedule_id){
+        $this->db->where('schedule_id', $schedule_id);
+        $this->db->delete('students_schedule');
+
+        
+        $this->db->where('schedule_id', $schedule_id);
+        $this->db->delete('students_schedule');
+    }
+    
+    public function createStudentScheduleBySection($schedule_id, $year_level, $semester, $section_id)
+    {
+        $this->db->select('student_id');
+        $this->db->from('students');
+        $this->db->where('section_id', $section_id);        
+        $insert_array = $this->db->get()->result_array();
+        
+        if(empty($section_id)){
+            $insert_array = array();
+        }
+
+        if(!empty($insert_array)){
+            foreach($insert_array as $value){
+                $data = array(
+                    'student_id' => $value['student_id'],
+                    'year_level' => $year_level,
+                    'semester' => $semester,
+                    'schedule_id' => $schedule_id
+
+                );
+
+            $this->db->insert('students_schedule', $data);
+            }
+        }
+    
+    }
+    
+    public function createStudentScheduleByStudent($schedule_id, $year_level, $semester, $student_number)
+    {
+        $this->db->select('student_id');
+        $this->db->from('students');
+        $this->db->where('student_number', $student_number);        
+        $student_id = $this->db->get()->result_array()[0]['student_id'];
+        
+        if(!empty($student_id)){
+            $data = array(
+                'student_id' => $student_id,
+                'year_level' => $year_level,
+                'semester' => $semester,
+                'schedule_id' => $schedule_id
+            );
+
+            $this->db->insert('students_schedule', $data);
+        }    
+    }
+    
+    public function updateScheduleSection($schedule_id, $section_id){
+        
+        $this->db->set('section_id', $section_id);
+        $this->db->where('schedule_id',$schedule_id);
+        $this->db->update('schedule');
+        
     }
 }

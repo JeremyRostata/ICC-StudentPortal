@@ -82,6 +82,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       
 <div class="">
 
+<input type="text" name="" value="<?= $schedule_info['teacher_name'] ?>" disabled>
+<input type="text" name="" value="<?= $schedule_info['subject_name'] ?>" disabled>
 
             <table>
 
@@ -114,20 +116,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </td>
                 <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><?= $row['section_name'] ?></td>
                 <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"></td>
-                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="prelim_grade[]" value="<?= $row['prelim_grade'] ?>">
-                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="midterm_grade[]" value="<?= $row['midterm_grade'] ?>">
-                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="final_grade[]" value="<?= $row['final_grade'] ?>">
-                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="grade[]" value="<?= $row['grade'] ?>">
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="prelim_grade[]" value="<?= $row['prelim_grade'] ?>" disabled>
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="midterm_grade[]" value="<?= $row['midterm_grade'] ?>" disabled>
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="final_grade[]" value="<?= $row['final_grade'] ?>" disabled>
+                <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><input type="number"step=".01" name="grade[]" value="<?= $row['grade'] ?>" disabled>
                   
-
-
-
                 <td class="p-3 text-sm whitespace-nowrap class bg-blue-200">
-                    <select class="opt" name="grade_remarks_id[]" value="<?= $row['grade_remarks_id'] ?>"> 
+                    <select class="opt" name="grade_remarks_id[]" value="<?= $row['grade_remarks_id'] ?>" disabled> 
                         <option value="" hidden>-</option>
                         <?php foreach ($grade_remarks_list as $option) : ?>
-                        <option value="<?= $option['grade_remarks_id'] ?>">
-                        <?= $row['grade_remarks_id'] == $option['grade_remarks_id'] ? '' : ''?>
+                        <option value="<?= $option['grade_remarks_id'] ?>" <?= $row['grade_remarks_id'] == $option['grade_remarks_id'] ? 'selected' : ''?>>
                         <?= $option['grade_remarks_id'] . ' - ' . $option['grade_remarks_name'] ?>
                         </option>
                         <?php endforeach; ?>
@@ -141,6 +139,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </table>
             </div>
 
+            
+    <form action=/C_Program_Dashboard/addSection method="post" target="_self">
+    
+    <input type="hidden" name=schedule_id value="<?= $schedule_id ?>">
+    <select class="opt" name="section_id"> 
+        <option value="" hidden>-</option>
+        <?php foreach ($course_section as $option) : ?>
+        <option value="<?= $option['section_id'] ?>" <?= $option['section_id'] == $schedule_info['section_id'] ? 'selected' : ''?>>
+        <?= $option['section_name'] ?>
+        </option>
+        <?php endforeach; ?>
+    </select>
+      <input class="hover:bg-blue-200 hover:text-gray-800" type="submit" value="Add Section">    
+    </form>
+    
+    <form action=/C_Program_Dashboard/addStudentSchedule method="post" target="_self">
+    <input type="hidden" name=schedule_id value="<?= $schedule_id ?>">
+    <input type="text" name="student_number" value="">
+    <input class="hover:bg-blue-200 hover:text-gray-800" type="submit" value="Add Student">    
+    </form>
 
 
 <script>
