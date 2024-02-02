@@ -46,6 +46,7 @@ class M_Student_fyear extends CI_Model{
         $this->db->join('course','students.course_id = course.course_id','left');
         $this->db->join('curriculum','course.course_id = curriculum.course_id','left');
         $this->db->join('subject','curriculum.subject_id = subject.subject_id','left');
+        
         $this->db->where('student_id', $student_id);
         $this->db->where('curriculum.semester', 1);
         $this->db->where('curriculum.year_level', 1);

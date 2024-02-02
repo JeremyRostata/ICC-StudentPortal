@@ -131,7 +131,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre><?= $row['subject_name'] ?></pre></td>
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre>   <?= $row['subject_code'] ?></pre></td>
-                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre></pre></td>
+                  <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre>  </pre></td>
                   </tr>
                 
                 <?php endforeach; ?>
@@ -173,6 +173,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre><?= $row['subject_name'] ?></pre></td>
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre>   <?= $row['subject_code'] ?></pre></td>
+                  
                   <td class="p-3 text-sm whitespace-nowrap class bg-blue-200"><pre></pre></td>
                   </tr>
                 
