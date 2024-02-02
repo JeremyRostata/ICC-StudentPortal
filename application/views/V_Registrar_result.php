@@ -69,6 +69,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </nav>
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+
+
+<main>
+<form method="post" action="<?php echo base_url('C_Student_result/search'); ?>">
+    <label for="searchName">Enter Name:</label>
+    <input type="text" name="searchName" id="searchName">
+    <input type="submit" value="Search">
+</form>
+<section>
 <?php if (!empty($results)): ?>
 <main class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mb-20">
         <div class="relative flex items-center justify-between">
