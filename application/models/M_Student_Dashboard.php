@@ -50,4 +50,14 @@ class M_Student_Dashboard extends CI_Model{
     
         $this->db->insert('student_user', $data);
     }
+    public function imageUpload($student_id,$new_img_name){
+        $data = array(
+            'profile_name' => $new_img_name
+        );
+
+        $this->db->where('student_id', $student_id);
+        $this->db->update('employee', $data);
+
+        return ($this->db->affected_rows() > 0);
+    }
 }
