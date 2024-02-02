@@ -16,11 +16,14 @@ class C_Student_Dashboard extends CI_Controller {
     public function index(){
         $student_id = $this->session->userdata('student_id');
         $student_info = $this->M_Student_Dashboard->fetchStudentInfo($student_id);
-        $student_grade_list = $this->M_Student_Dashboard->fetchStudentGradeList($student_id);
+        $sem1 = $this->M_Student_Dashboard->fetchSem1($student_id);
+        $sem2 = $this->M_Student_Dashboard->fetchSem2($student_id);
+
 
         $data = array( 
             'student_info' => $student_info,
-            'student_grade_list'=> $student_grade_list
+            'sem1'=> $sem1,
+            'sem2'=> $sem2
         );
 		$this->load->view('V_Student_Dashboard', $data);
     }

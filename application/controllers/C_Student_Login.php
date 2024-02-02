@@ -41,7 +41,7 @@ class C_Student_Login extends CI_Controller {
         
         if(!empty($student_id)){
             $_SESSION['student_id'] = $student_id;
-            redirect('C_Student_Dashboard/index');
+            redirect('C_Student_subject /index');
         } else{
             $this->session->set_flashdata('message','Incorrect login and password');
             redirect('C_Student_Login/index'); 
