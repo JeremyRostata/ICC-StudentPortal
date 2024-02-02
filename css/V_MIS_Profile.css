@@ -106,6 +106,31 @@ input{
     padding: 5px;
     height: 42px;
     width: 90px;
+    cursor: pointer;
+}
+input#upload{
+    cursor: pointer;
+}
+label.pp{
+    position: relative;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 30px;
+    cursor: pointer;
+    z-index: 1;
+}
+label.pp:hover{
+    background-color: rgba(245, 235, 235, 0.5);
+}
+input#profile_pic{
+    position: absolute;
+    top: 20px;
+    left: 60px;
+    width: 240px;
+    opacity: 0.0;
+    cursor: pointer;
+    z-index: 2;
 }
 .changePass{
     position: relative;
