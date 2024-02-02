@@ -40,8 +40,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <img src="<?php echo base_url();?>images/<?= $MIS_info['profile_name']?>" alt="profile" style="width: 53px; height: 53px; border-radius: 20px;"> 
                 </button>
                 <div class="dropDownContent">
-                  <a href="/C_MIS_Dashboard">Dashboard</a> 
-                  <a href="/C_MIS_Profile/logout">Log-out</a>
+                  <a href="/C_Student_subject">Dashboard</a> 
+                  <a href="/C_Student_Profile/logout">Log-out</a>
                 </div>
               </div>
                 
@@ -60,13 +60,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="profile">
           <table>
             <tr>
-              <th>Possition</th>
+              
               <th>First Name</th>
               <th>Middle Name</th>
               <th>Last Name</th> 
             </tr>
             <tr>
-              <td><?= $role_list['access_role_name']?></td>
+              
               <td><?= $MIS_info['first_name']?></td>
               <td><?= $MIS_info['middle_name']?></td>
               <td><?= $MIS_info['last_name']?></td> 
@@ -75,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
 
           <div class="profilePicture">
-            <form action="/C_MIS_Profile/imageUpload" method="post" enctype="multipart/form-data">
+            <form action="/C_Student_Profile/imageUpload" method="post" enctype="multipart/form-data">
               <label class="pp" for="profile_pic">Select Image for Profile Picture</label>
               <input name="profile_pic" id="profile_pic" type="file">
               <input type="submit" name="submit" value="Upload">
@@ -86,7 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <button onclick="toggleForm()">Change Password?</button>
 
             <div class="formcon">
-              <form action="/C_MIS_Profile/resetPass" method="post" target="_self">
+              <form action="/C_Student_Profile/resetPass" method="post" target="_self">
                 <div class="hide">
                   <input type="password" id="password" name="password" value="123">
                 </div>
@@ -96,7 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
 
           <div class="changePass" >
-            <form action="/C_MIS_Profile/changePass" method="post" target="_self">
+            <form action="/C_Student_Profile/changePass" method="post" target="_self">
               <input type="password" id="password" name="password" >
               <input type="submit" value="Save">
             </form>

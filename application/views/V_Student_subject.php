@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <base href="<?= base_url(); ?>">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- <link rel="stylesheet" href="css\V_Student_subject.css?<?= filemtime('css\V_Student_subject.css'); ?>"> -->
+    <link rel="stylesheet" href="css\V_Student_subject.css?<?= filemtime('css\V_Student_subject.css'); ?>">
 
 
 
@@ -45,32 +45,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>            
           </div>
 
-          <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">                
+          <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">       
+            
+          
+
+
+
+
             <!-- Profile dropdown -->             
-            <div class="relative ml-3">
-              <div>
-                <button type="button" onclick="toggleProfileDropdown()" class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                  <span class="absolute -inset-1.5"></span>
-                  <span class="sr-only">Open user menu</span>
-                  <img src="<?php echo base_url();?>images/pp.png" alt="" style="width: 55px;">                 
+            <div class="dropDown">
+                <button class="dropbtn">
+                <img src="<?php echo base_url();?>images/<?= $student_info
+                ['profile_name']?>" alt="profile" style="width: 53px; height: 53px; border-radius: 20px;">   
                 </button>
+                <div class="dropDownContent">
+                  <a href="/C_Student_Profile">Profile</a>
+                  <a href="/C_Student_subject/logout">Log-out</a>
+                </div>
               </div>
-
-              <div id="myProfileDropdown" class="hidden absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-blue-200 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                <!-- Active: "bg-gray-100", Not Active: "" -->
-               <span> <?= $student_info['last_name'] . ', ' . $student_info['first_name'] ?>   </span>
-               
-               <br>
-                          <form action="/C_student_Dashboard/logout" method="post">
-                          <div class="hover:text-blue-500 ">
-                          <input class="hover:font-bold block pr-12 text-sm text-gray-700 hover:text-blue-800" type="submit" value="Logout">
-                          </div>
-                          </form>
-              </div>
-              </div>
-            </div>         
+            </div>
+          
           </div>
-
         </div>
       </div>
     </nav>
