@@ -6,7 +6,7 @@ class M_MIS_Profile extends CI_Model{
         parent::__construct();
     }
     
-    public function fetchMISInfo($employee_id){
+    public function fetchMISInfo($employee_id){ 
         $this->db->select('first_name'); 
         $this->db->select('last_name');
         $this->db->select('middle_name'); 
@@ -42,7 +42,7 @@ class M_MIS_Profile extends CI_Model{
             'password' => $password
         );
         $this->db->where('employee_id', $employee_id);
-        $this->db->update('employee', $data);
+        $this->db->update('employee_user', $data);
         if ($this->db->affected_rows() > 0) {
             return true; 
         } else {

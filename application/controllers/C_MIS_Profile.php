@@ -6,7 +6,7 @@ class C_MIS_Profile extends CI_Controller {
     public function __construct(){
         parent::__construct();
         
-        if(empty($_SESSION['employee_id'])){  
+        if(empty($_SESSION['employee_id'])){   
             redirect('C_Employee_Login'); 
         }
         
