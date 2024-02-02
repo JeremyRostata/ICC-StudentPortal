@@ -46,7 +46,7 @@ header h1{
     pointer-events: none;
 }
 .login h2{
-    font-size: 25px;
+    font-size: 28px;
     text-align: center;
     padding: 10px;
 }
@@ -55,7 +55,7 @@ header h1{
     padding: 15px;
 }
 .login label{
-    font-size: 15px;
+    font-size: 26px;
     padding: 5px;
 }
 .login .login_button{
@@ -84,12 +84,12 @@ textarea:focus, input:focus {
     margin: 10px;
 }
 input.create{
-    font-size: 15px;
+    font-size: 18px;
     color: yellow;
 }
 #student_id, #password{
     color: #000000;
-    padding: 2px 4px;
+    padding: 2px 4px; 
 }
 .redirect {
     margin-bottom: 10px;
@@ -152,8 +152,8 @@ input.create{
         width: 25%;
     }
     select, input, textarea, option{
-        width: 185px;
-        height: 28px;
+        width: 215px;
+        height: 35px;
         border-radius: 5px;
         color: #000000;
     }
